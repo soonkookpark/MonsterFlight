@@ -44,5 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e037af1569ebc4f4fa38b44f71f2e6bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyAttack: []
   enemyBulletPrefab: {fileID: 8052931396273855588, guid: 2fcf2bdb3106f274e936e55a70bc2f1c, type: 3}
   amountBullet: 500

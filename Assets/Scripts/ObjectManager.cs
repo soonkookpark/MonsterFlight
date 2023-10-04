@@ -7,7 +7,7 @@ public class ObjectManager : MonoBehaviour
 
     public static ObjectManager instance;
 
-    private List<GameObject> enemyAttack;
+    public List<GameObject> enemyAttack;
     public GameObject enemyBulletPrefab;
     public int amountBullet = 10;
 
@@ -44,9 +44,14 @@ public class ObjectManager : MonoBehaviour
         return null;
     }
 
+    public void OnDestroy()
+    {
+        enemyAttack = null;
+    }
     public void ReturnEnemyBullet(GameObject bullet)
     {
         bullet.SetActive(false);
     }
+    
 
 }
