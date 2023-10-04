@@ -589,6 +589,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3663699553474801360, guid: 430963c35d62344498d4325754a9783f, type: 3}
+      propertyPath: enemyProjectile
+      value: 
+      objectReference: {fileID: 976096603181953662, guid: 2fcf2bdb3106f274e936e55a70bc2f1c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -760,6 +764,67 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4347814477202311374, guid: e9963c81749206141a7ea7ae440e06ac, type: 3}
   m_PrefabInstance: {fileID: 6109302897126073172}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1889117916
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 243274273786670893, guid: 430963c35d62344498d4325754a9783f, type: 3}
+      propertyPath: m_Name
+      value: ItemEnemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605179708063224742, guid: 430963c35d62344498d4325754a9783f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605179708063224742, guid: 430963c35d62344498d4325754a9783f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605179708063224742, guid: 430963c35d62344498d4325754a9783f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605179708063224742, guid: 430963c35d62344498d4325754a9783f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605179708063224742, guid: 430963c35d62344498d4325754a9783f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605179708063224742, guid: 430963c35d62344498d4325754a9783f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605179708063224742, guid: 430963c35d62344498d4325754a9783f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605179708063224742, guid: 430963c35d62344498d4325754a9783f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605179708063224742, guid: 430963c35d62344498d4325754a9783f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605179708063224742, guid: 430963c35d62344498d4325754a9783f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3663699553474801360, guid: 430963c35d62344498d4325754a9783f, type: 3}
+      propertyPath: enemyProjectile
+      value: 
+      objectReference: {fileID: 976096603181953662, guid: 2fcf2bdb3106f274e936e55a70bc2f1c, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 430963c35d62344498d4325754a9783f, type: 3}
 --- !u!1001 &1994489412
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -831,11 +896,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1209702346561582105, guid: 977b0ac7262af664cbb373c22d6802b2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2.64
       objectReference: {fileID: 0}
     - target: {fileID: 1209702346561582105, guid: 977b0ac7262af664cbb373c22d6802b2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.49
       objectReference: {fileID: 0}
     - target: {fileID: 1209702346561582105, guid: 977b0ac7262af664cbb373c22d6802b2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -875,7 +940,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4167951041627448461, guid: 977b0ac7262af664cbb373c22d6802b2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7862115615316904758, guid: 977b0ac7262af664cbb373c22d6802b2, type: 3}
       propertyPath: enemyProjectile
@@ -995,6 +1060,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BulletObject
       objectReference: {fileID: 0}
+    - target: {fileID: 5294498546659541049, guid: e9963c81749206141a7ea7ae440e06ac, type: 3}
+      propertyPath: amountBullet
+      value: 10000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1014,3 +1083,4 @@ SceneRoots:
   - {fileID: 6109302897126073172}
   - {fileID: 1994489412}
   - {fileID: 570550329}
+  - {fileID: 1889117916}

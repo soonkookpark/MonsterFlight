@@ -11,7 +11,7 @@ public class EnemyShoot : MonoBehaviour
     public float shotTimer;
     public Transform tf;
     private float disableTimer = 0f;
-    private int iteration = 0;
+    //private int iteration = 0;
     public int numberOfBullets = 30;
     private float currentAngle = 0f; // 현재 발사하는 총알의 각도
     private float angleIncrement;    // 총알 간의 각도 간격
@@ -94,11 +94,11 @@ public class EnemyShoot : MonoBehaviour
         if (enemyProjectile != null)
         {
             var playerPos = GameObject.FindGameObjectWithTag("Player");
-            var enemyPos = GameObject.FindGameObjectWithTag("Enemy");
-            enemyProjectile.transform.position = enemyPos.transform.position;
+            var enemyPos = transform.position;
+            enemyProjectile.transform.position = enemyPos;
             enemyProjectile.SetActive(true);
             var rb = enemyProjectile.GetComponent<Rigidbody2D>();
-            rb.velocity = playerPos.transform.position - enemyPos.transform.position;
+            rb.velocity = playerPos.transform.position - enemyPos;
             Debug.Log("cc");
             //enemyProjectile.transform.position = transform.position+new Vector3(0,-1,0);
         }
@@ -117,8 +117,8 @@ public class EnemyShoot : MonoBehaviour
         if (enemyProjectile != null)
         {
             enemyProjectile.SetActive(true);
-            var enemyPos = GameObject.FindGameObjectWithTag("ItemEnemy");
-            enemyProjectile.transform.position = enemyPos.transform.position;
+            var enemyPos = transform.position;
+            enemyProjectile.transform.position = enemyPos;
 
             // 발사 각도 설정 (원형으로 배치)
             Vector2 direction = new Vector2(Mathf.Cos(currentAngle * Mathf.Deg2Rad), Mathf.Sin(currentAngle * Mathf.Deg2Rad));
