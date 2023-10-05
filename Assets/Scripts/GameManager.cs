@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
 
     public void OnPlayerDead()
     {
+        Time.timeScale = 0;
         IsGameOver = true;
     }
 }

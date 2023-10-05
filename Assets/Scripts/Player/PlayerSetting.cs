@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerSetting : MonoBehaviour
 {
-    public GameObject dieEffect;
+    //public GameObject dieEffect;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -12,8 +12,8 @@ public class PlayerSetting : MonoBehaviour
         {
             //GameObject effect = Instantiate(dieEffect, transform.position, Quaternion.identity);
             //effect.getcomponent<dieEffect>().DieEffectOn();
-            GameManager.Instance.OnPlayerDead();
             Destroy(gameObject);
+            GameManager.Instance.OnPlayerDead();
         }
     }
 }

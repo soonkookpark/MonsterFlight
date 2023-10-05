@@ -26,13 +26,18 @@ public class PlayerMovement : MonoBehaviour
         
         if(PlayerInput.instance.IsMove)
         {
-            Vector3 movePos = Vector3.Lerp(playerRigid.position, PlayerInput.instance.CurrentPos, moveSpeed * Time.deltaTime);
+            //Vector3 movePos = Vector3.Lerp(playerRigid.position, PlayerInput.instance.MovePos, moveSpeed * Time.deltaTime);
+            //playerRigid.MovePosition(movePos);
+
+
+            //
+            Vector3 movePos = playerRigid.position;
+            movePos.x += PlayerInput.instance.MovePos.x * moveSpeed * Time.deltaTime;
+            movePos.y += PlayerInput.instance.MovePos.y * moveSpeed * Time.deltaTime;
             movePos.x = Mathf.Clamp(movePos.x, xPosClampMin, xPosClampMax);
             movePos.y = Mathf.Clamp(movePos.y, yPosClampMin, yPosClampMax);
             playerRigid.MovePosition(movePos);
-            //Debug.Log(Screen.width);
-            Debug.Log(xPosClampMin);
-            Debug.Log(xPosClampMax);
+
         }
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4643285213069496263}
   - component: {fileID: 6925065875774385776}
   - component: {fileID: 8187088276276982378}
-  - component: {fileID: 3663699553474801360}
+  - component: {fileID: 3777796198610731272}
   m_Layer: 0
   m_Name: ItemEnemy
   m_TagString: ItemEnemy
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHP: 0
   maxHP: 5
---- !u!114 &3663699553474801360
+--- !u!114 &3777796198610731272
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -183,12 +183,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 243274273786670893}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5960bc6a1169d9344a72cf4fd576418f, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f70440bcea406a408d8284d58484c74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyProjectile: {fileID: 976096603181953662, guid: 2fcf2bdb3106f274e936e55a70bc2f1c, type: 3}
-  shotDelay: 1
   itemShotDelay: 0.1
   shotTimer: 0
-  tf: {fileID: 2605179708063224742}
   numberOfBullets: 30

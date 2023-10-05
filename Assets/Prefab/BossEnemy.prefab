@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4781198936277147977}
   - component: {fileID: 5685363304078214364}
   - component: {fileID: 7894523058737938996}
-  - component: {fileID: 7390906718238672874}
+  - component: {fileID: 6265494143362205587}
   m_Layer: 0
   m_Name: BossEnemy
   m_TagString: ItemEnemy
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHP: 0
   maxHP: 5
---- !u!114 &7390906718238672874
+--- !u!114 &6265494143362205587
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -183,10 +183,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8258865919818211296}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5960bc6a1169d9344a72cf4fd576418f, type: 3}
+  m_Script: {fileID: 11500000, guid: c46f10485e8b0404b8facdbaf4c62337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyProjectile: {fileID: 0}
-  shotDelay: 1
-  shotTimer: 0
-  tf: {fileID: 515922299968641490}
