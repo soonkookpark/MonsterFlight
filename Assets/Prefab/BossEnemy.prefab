@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6265494143362205587}
   m_Layer: 0
   m_Name: BossEnemy
-  m_TagString: ItemEnemy
+  m_TagString: BossEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,3 +186,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46f10485e8b0404b8facdbaf4c62337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyProjectile: {fileID: 976096603181953662, guid: 2fcf2bdb3106f274e936e55a70bc2f1c, type: 3}
+  shotTimer: 0
+  numberOfBullets: 30

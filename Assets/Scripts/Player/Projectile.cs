@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    PlayerShoot p1;
+    
     Rigidbody2D projectileRigid;
     public float speed = 30f;
     public int damage = 1;
 
     private void Awake()
     {
+        p1 = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShoot>();
+
         projectileRigid = GetComponent<Rigidbody2D>();
     }
 
@@ -29,6 +33,8 @@ public class Projectile : MonoBehaviour
     {
         if(collision.CompareTag("Enemy"))
         {
+
+            p1.CountUp();
             Destroy(gameObject);
             collision.GetComponent<Enemy>().TakeDamage(damage);
         }

@@ -36,7 +36,17 @@ public class GameManager : MonoBehaviour
     {
         if (IsGameOver && Input.GetKeyDown(KeyCode.R))
         {
+            Time.timeScale = 1.0f;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        if(Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            Time.timeScale = 1.3f;
+        }
+        if(Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            Time.timeScale = 1.0f;
         }
     }
 

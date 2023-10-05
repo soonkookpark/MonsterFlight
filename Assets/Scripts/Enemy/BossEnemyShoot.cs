@@ -76,8 +76,8 @@ public class BossEnemyShoot : MonoBehaviour
                 // 다음 발사할 총알의 각도를 설정 (누적)
                 currentAngle += angleIncrement;
                 shotCount++;
-                Debug.Log(rb.velocity);
-                Debug.Log(currentAngle);
+                //Debug.Log(rb.velocity);
+                //Debug.Log(currentAngle);
             }
         }
     }

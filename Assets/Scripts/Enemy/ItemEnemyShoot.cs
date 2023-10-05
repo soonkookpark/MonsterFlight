@@ -70,8 +70,8 @@ public class ItemEnemyShoot : MonoBehaviour
             // 다음 발사할 총알의 각도를 설정 (누적)
             currentAngle += angleIncrement;
             shotCount++;
-            Debug.Log(rb.velocity);
-            Debug.Log(currentAngle);
+            //Debug.Log(rb.velocity);
+            //Debug.Log(currentAngle);
 
         }
     }
@@ -81,7 +81,7 @@ public class ItemEnemyShoot : MonoBehaviour
         foreach (GameObject bullet in ObjectManager.instance.enemyAttack)
         {
             if (bullet.activeInHierarchy)
-            {
+            { 
                 bullet.SetActive(false);
                 break; // 하나만 비활성화하고 나가기
             }
