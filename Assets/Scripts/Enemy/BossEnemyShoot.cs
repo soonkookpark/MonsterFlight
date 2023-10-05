@@ -23,7 +23,6 @@ public class BossEnemyShoot : MonoBehaviour
         }
 
 
-        shotTimer += Time.deltaTime;
 
         if (shotDegreeChange)
         {
@@ -37,6 +36,7 @@ public class BossEnemyShoot : MonoBehaviour
         }
         BossShot();
 
+        shotTimer += Time.deltaTime;
         if(shotTimer>1f)
         {
             shotCount = 0;
