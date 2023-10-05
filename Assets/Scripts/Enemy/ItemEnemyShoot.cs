@@ -25,7 +25,7 @@ public class ItemEnemyShoot : MonoBehaviour
             ItemShot();
         }
         disableTimer += Time.deltaTime;
-        if (disableTimer >= 3f)
+        if (disableTimer >= 2f)
         {
             DisableOneBullet();
             disableTimer = 0f;
