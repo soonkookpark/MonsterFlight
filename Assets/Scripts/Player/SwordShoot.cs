@@ -22,6 +22,18 @@ public class SwordShoot : PlayerShoot
             Shoot();
             shootTimer = 0;
         }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            var tempPos = new Transform[2];
+            firePos = tempPos;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha4)) 
+        {
+            var tempPos = new Transform[4];
+            firePos = tempPos;
+        }
+
         if(Input.GetKeyDown(KeyCode.Space))
         {
             Ult();

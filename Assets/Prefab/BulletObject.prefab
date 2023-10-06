@@ -46,4 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyAttack: []
   enemyBulletPrefab: {fileID: 8052931396273855588, guid: 2fcf2bdb3106f274e936e55a70bc2f1c, type: 3}
-  amountBullet: 10000
+  amountBullet: 999
