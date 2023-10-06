@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class SwordSubWeapon : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject projectile;
+    private float shotTimer;
+    public float shootDelay = 0.5f;
+    public Transform FirePos;
+   // public Transform FireRightPos;
+    public void Update()
     {
-        
+        shotTimer += Time.deltaTime;
+        if (shotTimer > 1f)
+        {
+            Shoot();
+            shotTimer = 0f;
+        }
+    }
+    public void Shoot()
+    {
+        Instantiate(projectile, FirePos.position, Quaternion.identity);
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

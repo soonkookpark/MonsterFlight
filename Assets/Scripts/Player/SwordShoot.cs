@@ -38,10 +38,18 @@ public class SwordShoot : PlayerShoot
     {
 
         subWeaponCount++;
-        Debug.Log(subWeaponCount);
+        //Debug.Log(subWeaponCount);
     }
     void Ult()
     {
-
+        Debug.Log("¿©±â ´Ù³à°¨");
+        
+        foreach (GameObject bullet in ObjectManager.instance.enemyAttack)
+        {
+            if (bullet.activeInHierarchy)
+            {
+                bullet.SetActive(false);
+            }
+        }
     }
 }

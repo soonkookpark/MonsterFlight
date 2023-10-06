@@ -10,8 +10,7 @@ public class GameManager : MonoBehaviour
 
     public bool IsGameOver { get; private set; }
 
-
-    public int score = 0;
+    private int score = 0;
 
     // Start is called before the first frame update
     private void Awake()
@@ -48,6 +47,13 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 1.0f;
         }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            AddScore(100);
+            //score += newScore;
+            // 점수 UI 텍스트 갱신
+            //UIManager.instance.UpdateScoreText(score);
+        }
     }
 
     public void OnPlayerDead()
@@ -55,4 +61,19 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         IsGameOver = true;
     }
+
+    public void AddScore(int newScore)
+    {
+        // 게임 오버가 아닌 상태에서만 점수 증가 가능
+        if (!IsGameOver)
+        {
+            // 점수 추가
+            score += newScore;
+            // 점수 UI 텍스트 갱신
+            UIManager.instance.UpdateScoreText(score);
+        }
+        
+    }
+
+
 }
