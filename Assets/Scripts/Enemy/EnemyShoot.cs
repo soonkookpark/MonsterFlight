@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyShoot : MonoBehaviour
 {
     
-    public EnemyProjectile enemyProjectile;
+    public static EnemyProjectile enemyProjectile;
 
     public float shotDelay = 1;
     public float itemShotDelay = 0.1f;
@@ -33,6 +33,7 @@ public class EnemyShoot : MonoBehaviour
         disableTimer += Time.deltaTime;
         if (disableTimer >= 3f)
         {
+            
             DisableOneBullet();
             disableTimer = 0f;
         }

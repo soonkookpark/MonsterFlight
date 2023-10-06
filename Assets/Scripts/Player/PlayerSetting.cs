@@ -6,7 +6,7 @@ public class PlayerSetting : MonoBehaviour
 {
     //게임오브젝트로 이펙트 생성
     //public GameObject dieEffect;
-    private int startingHealth = 2;
+    private int startingHealth = 102;
     private int playerhealth;
     
     private void OnEnable()

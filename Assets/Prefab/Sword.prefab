@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3888494913742541533}
   - component: {fileID: 316395639980968493}
+  - component: {fileID: 599059889506191741}
   m_Layer: 0
   m_Name: RightGun
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 3735001419876718382}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.907, y: -0.692, z: 0.0014846423}
+  m_LocalPosition: {x: 0.752, y: -0.249, z: 0.0014846423}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -85,6 +86,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &599059889506191741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3735001419876718382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f67820ac08006da4a9d84a8403048582, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 6499794008699261733, guid: ee9fc6257a29957429b6441c21fed5ad, type: 3}
+  shootDelay: 10
+  FirePos: {fileID: 3253933808085440893}
 --- !u!1 &5390108072331286316
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +239,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &7764252855342339119
 Rigidbody2D:
@@ -324,6 +340,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4981406658089596000}
   - component: {fileID: 3487151719960964993}
+  - component: {fileID: 6444742008777746165}
   m_Layer: 0
   m_Name: LeftGun
   m_TagString: Untagged
@@ -340,7 +357,7 @@ Transform:
   m_GameObject: {fileID: 6786354389767257913}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.609, y: -0.685, z: 0.0014846423}
+  m_LocalPosition: {x: -0.756, y: -0.24, z: 0.0014846423}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -399,6 +416,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6444742008777746165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6786354389767257913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f67820ac08006da4a9d84a8403048582, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 6499794008699261733, guid: ee9fc6257a29957429b6441c21fed5ad, type: 3}
+  shootDelay: 10
+  FirePos: {fileID: 20010220572892785}
 --- !u!1 &8788170863271453330
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,8 +455,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8788170863271453330}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.15014088, y: 0.4411955, z: -0.0014846423}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
