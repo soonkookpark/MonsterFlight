@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 5685363304078214364}
   - component: {fileID: 7894523058737938996}
   - component: {fileID: 6265494143362205587}
-  m_Layer: 0
+  - component: {fileID: 3908920463092380851}
+  m_Layer: 3
   m_Name: BossEnemy
   m_TagString: BossEnemy
   m_Icon: {fileID: 0}
@@ -173,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHP: 0
-  maxHP: 5
+  maxHP: 150
 --- !u!114 &6265494143362205587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,3 +190,18 @@ MonoBehaviour:
   enemyProjectile: {fileID: 976096603181953662, guid: 2fcf2bdb3106f274e936e55a70bc2f1c, type: 3}
   shotTimer: 0
   numberOfBullets: 30
+--- !u!114 &3908920463092380851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8258865919818211296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 913d6ecebf7cec74caa5fcf446af9cc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveTime: 0
+  duration: 0
+  rb: {fileID: 5685363304078214364}

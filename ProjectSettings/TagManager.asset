@@ -8,17 +8,20 @@ TagManager:
   - EnemyBullet
   - ItemEnemy
   - BossEnemy
+  - DieZone
+  - Aibullet
+  - DeadZone
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enemy
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - DieZone
+  - ChargeShot
+  - EnemyBullet
+  - DeadZone
   - 
   - 
   - 

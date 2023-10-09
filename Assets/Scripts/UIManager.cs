@@ -26,7 +26,7 @@ public class UIManager : MonoBehaviour
 
     public Text ammoText; // 탄약 표시용 텍스트
     public TextMeshProUGUI scoreText; // 점수 표시용 텍스트
-    public Text waveText; // 적 웨이브 표시용 텍스트
+    public TextMeshProUGUI lifeText; // 적 웨이브 표시용 텍스트
     public GameObject gameoverUI; // 게임 오버시 활성화할 UI 
 
     // 점수 텍스트 갱신
@@ -36,9 +36,9 @@ public class UIManager : MonoBehaviour
         scoreText.SetText(scoreTextEx); //= "Score : " + newScore;
     }
 
-    // 게임 재시작
-    public void GameRestart()
+    public void UpdateLifeText(int life)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        var lifeTextEx = ("Score : " + life).ToString();
+        lifeText.SetText(lifeTextEx); //= "Score : " + newScore;
     }
 }

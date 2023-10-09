@@ -101,6 +101,7 @@ MonoBehaviour:
   projectile: {fileID: 6499794008699261733, guid: ee9fc6257a29957429b6441c21fed5ad, type: 3}
   shootDelay: 10
   FirePos: {fileID: 3253933808085440893}
+  aibullet: []
 --- !u!1 &5390108072331286316
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,6 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e038da553f543824eb9c428fac1307c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitEffect: {fileID: 0}
 --- !u!114 &2159465340796376125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -431,6 +433,7 @@ MonoBehaviour:
   projectile: {fileID: 6499794008699261733, guid: ee9fc6257a29957429b6441c21fed5ad, type: 3}
   shootDelay: 10
   FirePos: {fileID: 20010220572892785}
+  aibullet: []
 --- !u!1 &8788170863271453330
 GameObject:
   m_ObjectHideFlags: 0

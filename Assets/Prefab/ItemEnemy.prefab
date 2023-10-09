@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6925065875774385776}
   - component: {fileID: 8187088276276982378}
   - component: {fileID: 3777796198610731272}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ItemEnemy
   m_TagString: ItemEnemy
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHP: 0
-  maxHP: 5
+  maxHP: 12
 --- !u!114 &3777796198610731272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,3 +190,4 @@ MonoBehaviour:
   itemShotDelay: 0.1
   shotTimer: 0
   numberOfBullets: 30
+  shotCount: 0

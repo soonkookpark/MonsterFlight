@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Lobby.unity
+    guid: 5d7467d53acfe584196e25a8eed6bef8
+  - enabled: 1
     path: Assets/Scenes/MonsterFlight.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}

@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
     //public ParticleSystem hitParticle;
 
     public float enemyHP;
-    public float maxHP = 5f;
+    public float maxHP = 20f;
     private void Start()
     {
         enemyHP = maxHP;
@@ -40,6 +40,7 @@ public class Enemy : MonoBehaviour
     {
         //ÆÄ±« »ç¿îµå
         //ÆÄ±« ÀÌÆåÆ®
+        GameManager.Instance.AddScore(100000);
         Destroy(gameObject);
     }
 }

@@ -38,5 +38,9 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
             collision.GetComponent<Enemy>().TakeDamage(damage);
         }
+        else if(collision.CompareTag("DieZone")||collision.CompareTag("DeadZone"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

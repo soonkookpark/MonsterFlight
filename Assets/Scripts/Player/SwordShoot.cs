@@ -1,44 +1,58 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SwordShoot : PlayerShoot
 {
     public Transform[] firePos; // 크기가 4인 배열
     public GameObject projectile;
-
-    public float shootDelay = 0.3f;
+    public GameObject chargeShot;
+    public Slider powerGuage;
+    public float shootDelay = 0.1f;
     public float shootTimer;
     public float subWeaponCount = 0;
-    // Start is called before the first frame update
+    public float subweaponAttackEnable = 50;
+    public bool chargeShotNow;
+    private float ultTime = 30f;
+    private float ultTimer;
+    
+    protected override void OnEnable()
+    {
+        base.OnEnable();
 
+        powerGuage.gameObject.SetActive(true);
+        powerGuage.minValue = 0;
+        powerGuage.maxValue = subweaponAttackEnable;
+        powerGuage.value = subWeaponCount;
+    }
 
     // Update is called once per frame
     protected void Update()
     {
         shootTimer += Time.deltaTime;
+        ultTimer += Time.deltaTime;
         if(shootTimer>shootDelay)
         {
             Shoot();
             shootTimer = 0;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            var tempPos = new Transform[2];
-            firePos = tempPos;
-        }
 
-        if (Input.GetKeyDown(KeyCode.Alpha4)) 
-        {
-            var tempPos = new Transform[4];
-            firePos = tempPos;
-        }
-
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space)&&ultTimer>ultTime)
         {
             Ult();
+            ultTimer = 0;
+        }
+
+        if(subWeaponCount >= subweaponAttackEnable)
+        {
+            Debug.Log("1번");
+            ChargeShoot();
+            Debug.Log("2번");
+            subWeaponCount = 0;
         }
     }
+
     void Shoot()
     {
         for (int i = 0; i < firePos.Length; i++)
@@ -46,16 +60,16 @@ public class SwordShoot : PlayerShoot
             Instantiate(projectile, firePos[i].position, Quaternion.identity);
         }
     }
+
     public override void CountUp()
     {
-
         subWeaponCount++;
+        powerGuage.value = subWeaponCount;
         //Debug.Log(subWeaponCount);
     }
+
     void Ult()
     {
-        Debug.Log("여기 다녀감");
-        
         foreach (GameObject bullet in ObjectManager.instance.enemyAttack)
         {
             if (bullet.activeInHierarchy)
@@ -64,4 +78,13 @@ public class SwordShoot : PlayerShoot
             }
         }
     }
+
+    void ChargeShoot()
+    {
+        
+        Instantiate(chargeShot,transform.position, Quaternion.identity);
+        
+    }
+
+
 }

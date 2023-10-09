@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3591247588168170545}
   - component: {fileID: 4509951402126642970}
   - component: {fileID: 7862115615316904758}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &4509951402126642970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHP: 0
-  maxHP: 5
+  maxHP: 6
 --- !u!114 &7862115615316904758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5960bc6a1169d9344a72cf4fd576418f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyProjectile: {fileID: 0}
   shotDelay: 1
+  itemShotDelay: 0.1
   shotTimer: 0
-  tf: {fileID: 1209702346561582105}
+  numberOfBullets: 30
