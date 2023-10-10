@@ -5,14 +5,17 @@ using UnityEngine;
 public class EnemyProjectile : MonoBehaviour
 {
     Rigidbody2D enemyProjectile;
+    BoxCollider2D enemyProjectileBoxCollider;
     private float addTime;
+
     private void Awake()
     {
         enemyProjectile = GetComponent<Rigidbody2D>();
+        enemyProjectileBoxCollider = GetComponent<BoxCollider2D>();
     }
+
     private void Update()
     {
-        
         addTime += Time.deltaTime;
         if(enemyProjectile != null && addTime>5.0f)
         {
@@ -23,6 +26,8 @@ public class EnemyProjectile : MonoBehaviour
     {
         if(collision.CompareTag("DieZone")|| collision.CompareTag("DeadZone") || collision.CompareTag("Player"))
         {
+            enemyProjectile.transform.localScale = new Vector2(0.1842f, 0.1842f);
+            enemyProjectileBoxCollider.size = new Vector2(1f,1f);
             //Debug.Log(addTime);
             gameObject.SetActive(false);
         }

@@ -7,7 +7,7 @@ public class AiProjectile : MonoBehaviour
     PlayerShoot p1;
 
     Rigidbody2D projectileRigid;
-    public float speed = 0.5f;
+    private float speed = 10f;
     public int damage = 1;
 
     private GameObject closestTarget; 

@@ -5,6 +5,7 @@ using UnityEngine;
 public class BossEnemyShoot : MonoBehaviour
 {
     public EnemyProjectile enemyProjectile;
+
     public float shotTimer;
     GameObject playerPos;
     public int numberOfBullets = 20;
@@ -13,7 +14,6 @@ public class BossEnemyShoot : MonoBehaviour
     private int shotCount;
     private float disableTimer = 0f;
     private bool shotDegreeChange = true;
-
     private void Update()
     {
         playerPos = GameObject.FindGameObjectWithTag("Player");
@@ -21,8 +21,6 @@ public class BossEnemyShoot : MonoBehaviour
         {
             return;
         }
-
-
 
         if (shotDegreeChange)
         {
@@ -58,6 +56,9 @@ public class BossEnemyShoot : MonoBehaviour
         {
             
             GameObject enemyProjectile = ObjectManager.instance.GetEnemyBullet();
+            //enemyProjectile.transform.localScale *= 1.5f;
+            //enemyProjectile.GetComponent<BoxCollider2D>().size *= 1.5f;
+            
             //Debug.Log("bb");
             angleIncrement = 360f / numberOfBullets;
             if (enemyProjectile != null)
@@ -87,6 +88,7 @@ public class BossEnemyShoot : MonoBehaviour
         {
             if (bullet.activeInHierarchy)
             {
+
                 bullet.SetActive(false);
                 break; // 하나만 비활성화하고 나가기
             }
