@@ -8,8 +8,8 @@ public class EnemyMovement : MonoBehaviour
     public enum MoveType
     {
         None = -1,
-        LtoR,
-        RtoL,
+        RTLT,//우상단 -> 좌상단
+        RTLC,
         StairLtoR,
         StairRtoL,
         ZigZag,
@@ -38,7 +38,7 @@ public class EnemyMovement : MonoBehaviour
     }
     private void Start()
     {
-        moveNum = 3;// Random.Range(0, 2);
+        moveNum = 0;// Random.Range(0, 2);
         duration = 5;//Random.Range(10, 11);
         stairCount = Random.Range(1, 4);
         if(transform.CompareTag("BossEnemy"))
@@ -46,17 +46,19 @@ public class EnemyMovement : MonoBehaviour
             moveNum = (int)MoveType.Down;
             duration = 150;
         }
+        //시네머신 스무스패스, 로컬포지션을 월드포지션으로
+        transform.localPosition
         switch (moveNum)
         {
             case 0:
-                firstPos = new Vector2(-10, 5);
-                midPos = (firstPos + lastPos) / 2;
+                firstPos = new Vector2(-3, 10);
+                midPos = new Vector2(-3, -3);
                 lastPos = new Vector2(10, 10);
                 break;
             case 1:
-                firstPos = new Vector2(10, 5);
-                midPos = (firstPos + lastPos) / 2;
-                lastPos = new Vector2(-10, 10);
+                firstPos = new Vector2(5, 10);
+                //midPos = (firstPos + lastPos) / 2;
+                lastPos = new Vector2(-6, 0);
                 break;
             case 2:
                 firstPos = new Vector2(-10, 0);
@@ -122,7 +124,11 @@ public class EnemyMovement : MonoBehaviour
             nextPos = CalculateMoveStraight(fP, lP, t);
         }
         float rotateAmount = Time.deltaTime * rotationSpeed;
-        transform.Rotate(Vector3.forward, rotateAmount);
+        
+        if(moveNum ==3)
+        {
+            transform.Rotate(Vector3.forward, rotateAmount);
+        }
         transform.position = nextPos;
     }
 
