@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4950647320873225946}
   m_Layer: 0
   m_Name: MoveEnemyLtoR
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,8 +50,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 913d6ecebf7cec74caa5fcf446af9cc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveTime: 0
-  duration: 0
+  speed: 5
+  path: {fileID: 0}
+  smoothPos: 0
   rb: {fileID: 0}
 --- !u!1001 &1221775729313174991
 PrefabInstance:
