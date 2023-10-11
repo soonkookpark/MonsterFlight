@@ -4754,6 +4754,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BulletObject
       objectReference: {fileID: 0}
+    - target: {fileID: 5294498546659541049, guid: e9963c81749206141a7ea7ae440e06ac, type: 3}
+      propertyPath: enemyAttack.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4858,6 +4862,34 @@ PrefabInstance:
     - target: {fileID: 1340825864742222315, guid: 762da352567b9f3409b3fd54302d5252, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2211547947164704748, guid: 762da352567b9f3409b3fd54302d5252, type: 3}
+      propertyPath: m_Name
+      value: no1Path
+      objectReference: {fileID: 0}
+    - target: {fileID: 2681531558888997138, guid: 762da352567b9f3409b3fd54302d5252, type: 3}
+      propertyPath: m_Name
+      value: no0Path
+      objectReference: {fileID: 0}
+    - target: {fileID: 2821007460972242362, guid: 762da352567b9f3409b3fd54302d5252, type: 3}
+      propertyPath: m_Name
+      value: no5Path
+      objectReference: {fileID: 0}
+    - target: {fileID: 2907405589933218038, guid: 762da352567b9f3409b3fd54302d5252, type: 3}
+      propertyPath: m_Name
+      value: no2Path
+      objectReference: {fileID: 0}
+    - target: {fileID: 3111753250636997966, guid: 762da352567b9f3409b3fd54302d5252, type: 3}
+      propertyPath: m_Name
+      value: no4Path
+      objectReference: {fileID: 0}
+    - target: {fileID: 4358041852193917370, guid: 762da352567b9f3409b3fd54302d5252, type: 3}
+      propertyPath: m_Name
+      value: no3Path
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373845823155141364, guid: 762da352567b9f3409b3fd54302d5252, type: 3}
+      propertyPath: m_Name
+      value: no6Path
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

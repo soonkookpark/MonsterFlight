@@ -18,7 +18,7 @@ public class EnemySpawner : MonoBehaviour
     private float numberOfSpawn;//스폰할 수
     private float spawnNumber;//스폰 한 수
     private float TimeCheck;//현재 흐른 시간
-    private int randNum = 3;
+    private int randNum = 0;
     public bool canSpawn = false;
     void Start()
     {
@@ -67,25 +67,30 @@ public class EnemySpawner : MonoBehaviour
                     SpawnItemMonster(randNum);
                     for (int i = 0; i < 2; i++)
                     {
-                        yield return new WaitForSeconds(1f);
+                        yield return new WaitForSeconds(0.5f);
                         SpawnNormalMonster(randNum);
                     }
-                    randNum = Random.Range(1, 7);
+                    yield return new WaitForSeconds(2f);
+                    randNum = 1;
                     break;
                 case 1:
                     for (int i = 0; i < 3; i++)
                     {
                         SpawnNormalMonster(randNum);
-                        yield return new WaitForSeconds(1f);
+                        yield return new WaitForSeconds(0.7f);
                     }
+                    yield return new WaitForSeconds(2f);
+                    randNum = 2;
                     break;
                 case 2:
                     for (int i = 0; i < 3; i++)
                     {
                         SpawnNormalMonster(randNum);
                         SpawnNormalMonster(randNum+1);
-                        yield return new WaitForSeconds(1f);
+                        yield return new WaitForSeconds(0.8f);
                     }
+                    yield return new WaitForSeconds(2f);
+                    randNum = 3;
                     break;
                 case 3:
                     for (int i = 0; i < 5; i++)
@@ -93,8 +98,19 @@ public class EnemySpawner : MonoBehaviour
                         SpawnNormalMonster(randNum+1);
                         yield return new WaitForSeconds(0.5f);
                     }
+                    yield return new WaitForSeconds(2f);
+                    randNum = 4;
                     break;
                 case 4:
+                    for (int i = 0; i < 5; i++)
+                    {
+                        SpawnNormalMonster(randNum + 1);
+                        SpawnNormalMonster(randNum + 2);
+                        yield return new WaitForSeconds(0.5f);
+                    }
+                    yield return new WaitForSeconds(2f);
+                    randNum = 1;
+
                     break;
                 case 5:
                     break;

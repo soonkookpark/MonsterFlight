@@ -7,8 +7,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     //public ParticleSystem hitParticle;
-    
-
+    MonsterTable monsterTable;
+    Dictionary<string, MonsterTable.Data> monsterInfo = new Dictionary<string, MonsterTable.Data>();
     public float enemyHP;
     public float maxHP = 20f;
 
@@ -23,6 +23,16 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         enemyHP = maxHP;
+        monsterTable = DataTableMgr.GetTable<MonsterTable>();
+
+        // 모든 몬스터 데이터 가져오기
+        var allMonsterData = monsterTable.GetAllMonsterData();
+
+        // 모든 몬스터 데이터를 반복해서 사용
+        foreach (var data in allMonsterData)
+        {
+            Debug.Log($"Monster ID: {data.Mon_ID}, HP: {data.Mon_HP}");
+        }
     }
     private void FixedUpdate()
     {
@@ -36,7 +46,6 @@ public class Enemy : MonoBehaviour
     }
     private void Update()
     {
-        
     }
     public void TakeDamage(int damage)
     {

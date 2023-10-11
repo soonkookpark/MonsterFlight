@@ -42,8 +42,8 @@ public class PlayerSetting : MonoBehaviour
             //Debug.Log(playerhealth);
             if (playerhealth <= 0 )
             {
-                gameObject.SetActive(false);
-                GameManager.Instance.OnPlayerDead();
+                //gameObject.SetActive(false);
+                //GameManager.Instance.OnPlayerDead();
             }
             else
             {
