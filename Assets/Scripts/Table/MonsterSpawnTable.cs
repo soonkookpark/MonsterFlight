@@ -18,7 +18,7 @@ public class MonsterSpawnTable : DataTable
         public int AppearTime { get; set; }
         public int Way { get; set; }
         public float StartPoint { get; set; }
-        public int MonsterID { get; set; }
+        public int Mon_ID { get; set; }
         public int Amount { get; set; }
     }
     protected Dictionary<int, Data> dic = new Dictionary<int, Data>();
