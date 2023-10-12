@@ -33,7 +33,6 @@ public class Projectile : MonoBehaviour
     {
         if(collision.CompareTag("Enemy")|| collision.CompareTag("ItemEnemy")|| collision.CompareTag("BossEnemy"))
         {
-
             p1.CountUp();
             Destroy(gameObject);
             collision.GetComponent<Enemy>().TakeDamage(damage);

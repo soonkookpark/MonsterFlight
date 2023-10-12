@@ -13,6 +13,8 @@ public class EnemySpawner : MonoBehaviour
     public Enemy ItemEnemy;
     public Enemy normalEnemy;
     public List<CinemachineSmoothPath> smoothPath;
+    MonsterSpawnTable monsterSpawnTable;
+
     private float checkItemMonster; //아이템 주는 몬스터 체크
     
     private float numberOfSpawn;//스폰할 수
@@ -20,8 +22,10 @@ public class EnemySpawner : MonoBehaviour
     private float TimeCheck;//현재 흐른 시간
     private int randNum = 0;
     public bool canSpawn = false;
+
     void Start()
     {
+
         StartCoroutine(SpawnEnemies());
     }
 

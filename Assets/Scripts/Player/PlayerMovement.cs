@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    Rigidbody playerRigid;
+    Rigidbody2D playerRigid;
 
     public float moveSpeed = 5f;
-    public float xPosClampMin;
-    public float xPosClampMax;
-    public float yPosClampMin;
-    public float yPosClampMax;
+    private float xPosClampMin;
+    private float xPosClampMax;
+    private float yPosClampMin;
+    private float yPosClampMax;
 
     public void Awake()
     {
-        playerRigid = GetComponent<Rigidbody>();
+        playerRigid = GetComponent<Rigidbody2D>();
 
         yPosClampMin = -Camera.main.orthographicSize * 0.9f;
         yPosClampMax = Camera.main.orthographicSize * 0.9f;

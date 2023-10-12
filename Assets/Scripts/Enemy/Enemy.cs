@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     public float smoothPos;
     public float speed = 0.5f;
     public Rigidbody2D rb;
+    private bool isDead = false;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -31,7 +32,7 @@ public class Enemy : MonoBehaviour
         // 모든 몬스터 데이터를 반복해서 사용
         foreach (var data in allMonsterData)
         {
-            Debug.Log($"Monster ID: {data.Mon_ID}, HP: {data.Mon_HP}");
+            Debug.Log($"Monster ID: {data.Mon_ID}, HP: {data.Mon_HP}, Stage_HpuP:{data.Stage_Hpup}");
         }
     }
     private void FixedUpdate()
@@ -59,18 +60,23 @@ public class Enemy : MonoBehaviour
         {
 
         }
-        
+
         if (enemyHP <= 0)
         {
-            OnDie();
+            if (!isDead)
+            {
+                isDead = true;
+                OnDie();
+            }
         }
-        
+
     }
 
     public void OnDie()
     {
         //파괴 사운드
         //파괴 이펙트
+        
         GameManager.Instance.AddScore(100000);
         Destroy(gameObject);
     }

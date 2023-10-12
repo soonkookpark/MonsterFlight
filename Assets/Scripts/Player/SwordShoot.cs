@@ -45,7 +45,7 @@ public class SwordShoot : PlayerShoot
         if(subWeaponCount >= subweaponAttackEnable)
         {
             Debug.Log("1¹ø");
-            ChargeShoot();
+            //ChargeShoot();
             Debug.Log("2¹ø");
             subWeaponCount = 0;
         }
