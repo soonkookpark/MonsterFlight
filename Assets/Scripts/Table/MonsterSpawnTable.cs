@@ -13,7 +13,7 @@ public class MonsterSpawnTable : DataTable
     {
         //Root	PatternType	ApearTime	Way	StartPoint	MonsterID	Amount
 
-        public int Root { get; set; }
+        public string Root { get; set; }
         public int PatternType { get; set; }
         public int AppearTime { get; set; }
         public int Way { get; set; }
@@ -21,7 +21,7 @@ public class MonsterSpawnTable : DataTable
         public int Mon_ID { get; set; }
         public int Amount { get; set; }
     }
-    protected Dictionary<int, Data> dic = new Dictionary<int, Data>();
+    protected Dictionary<string, Data> dic = new Dictionary<string, Data>();
     public MonsterSpawnTable()
     {
         filePath = "Assets/Table/Resources/MonsterSpawnTable.csv";
@@ -53,7 +53,7 @@ public class MonsterSpawnTable : DataTable
         }
     }
 
-    public Data GetMonsterData(int id)
+    public Data GetMonsterData(string id)
     {
         if (!dic.ContainsKey(id))
         {
