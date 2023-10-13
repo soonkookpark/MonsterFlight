@@ -15,6 +15,9 @@ public class Enemy : MonoBehaviour
     public float speed = 0.5f;
     public Rigidbody2D rb;
     private bool isDead = false;
+    public ParticleSystem explosionParticle;
+
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -24,10 +27,10 @@ public class Enemy : MonoBehaviour
         enemyHP = maxHP;
         monsterTable = DataTableMgr.GetTable<MonsterTable>();
 
-        // ¸ğµç ¸ó½ºÅÍ µ¥ÀÌÅÍ °¡Á®¿À±â
+        // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         var allMonsterData = monsterTable.GetAllMonsterData();
 
-        // ¸ğµç ¸ó½ºÅÍ µ¥ÀÌÅÍ¸¦ ¹İº¹ÇØ¼­ »ç¿ë
+        // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½İºï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½
         foreach (var data in allMonsterData)
         {
             Debug.Log($"Monster ID: {data.Mon_ID}, HP: {data.Mon_HP}, Stage_HpuP:{data.Stage_Hpup}");
@@ -50,11 +53,11 @@ public class Enemy : MonoBehaviour
     {
         Mathf.Clamp(enemyHP -= damage, 0, maxHP);
         
-        //¸Â´Â ÀÌÆåÆ®
+        //ï¿½Â´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
         //hitParticle.Stop();
         //hitParticle.Play();
 
-        //»ç¿îµå Ãß°¡ÇØ¾ßÇÔ
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½
         {
 
         }
@@ -72,9 +75,9 @@ public class Enemy : MonoBehaviour
 
     public void OnDie()
     {
-        //ÆÄ±« »ç¿îµå
-        //ÆÄ±« ÀÌÆåÆ®
-        
+        //íŒŒê´´ ì‚¬ìš´ë“œ
+        //íŒŒê´´ ì´í™íŠ¸
+
         GameManager.Instance.AddScore(100000);
         Destroy(gameObject);
     }
