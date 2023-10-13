@@ -5,19 +5,6 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
-    public class Data
-    {
-        public string Mon_ID { get; set; }
-        public string Mon_Name { get; set; }
-        public int Mon_HP { get; set; }
-        public int Mon_ATK { get; set; }
-        //public int ATKNUM { get; set; }
-        public int Stage_Hpup { get; set; }
-        public int Type { get; set; }
-        public int Mon_Score { get; set; }
-        //public int STRING { get; set; }
-    }
-
     //public ParticleSystem hitParticle;
     MonsterTable monsterTable;
     Dictionary<string, MonsterTable.Data> monsterInfo = new Dictionary<string, MonsterTable.Data>();
@@ -36,21 +23,40 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
+        monsterTable = new MonsterTable();
+        monsterTable.Load();
+        LoadData();
         rb = GetComponent<Rigidbody2D>();
     }
+
+    void LoadData()
+    {
+        var allEnemyData = monsterTable.GetAllMonsterData();
+        foreach (var data in allEnemyData)
+        {
+            monsterInfo[data.Mon_ID] = data;
+        }
+        foreach (var data in monsterInfo.Values)
+        {
+            Debug.Log(data.Mon_ID);
+        }
+    }
+
     private void Start()
     {
         enemyHP = maxHP;
-        monsterTable = DataTableMgr.GetTable<MonsterTable>();
+        {
+            //monsterTable = DataTableMgr.GetTable<MonsterTable>();
 
-        // ��� ���� ������ ��������
-        var allMonsterData = monsterTable.GetAllMonsterData();
-        //monsterInfo.ContainsKey()
-        // ��� ���� �����͸� �ݺ��ؼ� ���
-        //foreach (var data in allMonsterData)
-        //{
-        //    Debug.Log($"Monster ID: {data.Mon_ID}, HP: {data.Mon_HP}, Stage_HpuP:{data.Stage_Hpup}");
-        //}
+            // ��� ���� ������ ��������
+            //var allMonsterData = monsterTable.GetAllMonsterData();
+            //monsterInfo.ContainsKey()
+            // ��� ���� �����͸� �ݺ��ؼ� ���
+            //foreach (var data in allMonsterData)
+            //{
+            //    Debug.Log($"Monster ID: {data.Mon_ID}, HP: {data.Mon_HP}, Stage_HpuP:{data.Stage_Hpup}");
+            //}
+        }
     }
     private void FixedUpdate()
     {
@@ -64,6 +70,10 @@ public class Enemy : MonoBehaviour
     }
     private void Update()
     {
+        foreach(var data in monsterInfo.Values)
+        {
+            Debug.Log(data.Mon_ID);
+        }
     }
     public void TakeDamage(int damage)
     {

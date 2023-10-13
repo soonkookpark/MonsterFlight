@@ -85,10 +85,10 @@ public class EnemySpawner : MonoBehaviour
                 {
                     //SpawnMonster(data.Way, data.StartPoint, data.Mon_ID, data.Amount);
                     currentRoot++;
-                    Debug.Log(data.Way);
-                    Debug.Log(data.StartPoint);
-                    Debug.Log(data.Mon_ID);
-                    Debug.Log(data.Amount);
+                    //Debug.Log(data.Way);
+                    //Debug.Log(data.StartPoint);
+                    //Debug.Log(data.Mon_ID);
+                    //Debug.Log(data.Amount);
                     if (spawnInfo.Count < data.Root)
                         currentRoot = 0;
                 }
