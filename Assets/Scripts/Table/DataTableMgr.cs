@@ -11,7 +11,9 @@ public static class DataTableMgr
     {
         tables.Clear();
         var MonsterTable = new MonsterTable();
+        var MonsterSpawnTable = new MonsterSpawnTable();
         tables.Add(typeof(MonsterTable), MonsterTable);
+        tables.Add(typeof(MonsterSpawnTable), MonsterSpawnTable);
     }
 
     public static T GetTable<T>() where T : DataTable

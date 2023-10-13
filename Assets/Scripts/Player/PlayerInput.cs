@@ -18,7 +18,7 @@ public class PlayerInput : MonoBehaviour
         else
             Destroy(gameObject);
 
-        Debug.Log("¿Ô´Ù°¨");
+        
         IsMove = false;
     }
 

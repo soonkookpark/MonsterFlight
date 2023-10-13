@@ -12,9 +12,9 @@ public class Projectile : MonoBehaviour
 
     private void Awake()
     {
+        projectileRigid = GetComponent<Rigidbody2D>();
         p1 = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShoot>();
 
-        projectileRigid = GetComponent<Rigidbody2D>();
     }
 
     // Start is called before the first frame update
@@ -33,7 +33,7 @@ public class Projectile : MonoBehaviour
     {
         if(collision.CompareTag("Enemy")|| collision.CompareTag("ItemEnemy")|| collision.CompareTag("BossEnemy"))
         {
-            p1.CountUp();
+            //p1.CountUp();
             Destroy(gameObject);
             collision.GetComponent<Enemy>().TakeDamage(damage);
         }

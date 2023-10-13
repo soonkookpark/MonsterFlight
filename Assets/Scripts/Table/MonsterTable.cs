@@ -23,7 +23,7 @@ public class MonsterTable : DataTable
         //public int STRING { get; set; }
 
     }
-    protected Dictionary<string, Data> dic = new Dictionary<string, Data>();
+    public Dictionary<string, Data> dic = new Dictionary<string, Data>();
 
     public MonsterTable()
     {

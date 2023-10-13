@@ -4,6 +4,20 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+
+    public class Data
+    {
+        public string Mon_ID { get; set; }
+        public string Mon_Name { get; set; }
+        public int Mon_HP { get; set; }
+        public int Mon_ATK { get; set; }
+        //public int ATKNUM { get; set; }
+        public int Stage_Hpup { get; set; }
+        public int Type { get; set; }
+        public int Mon_Score { get; set; }
+        //public int STRING { get; set; }
+    }
+
     //public ParticleSystem hitParticle;
     MonsterTable monsterTable;
     Dictionary<string, MonsterTable.Data> monsterInfo = new Dictionary<string, MonsterTable.Data>();
@@ -16,6 +30,8 @@ public class Enemy : MonoBehaviour
     public Rigidbody2D rb;
     private bool isDead = false;
     public ParticleSystem explosionParticle;
+    
+
 
 
     private void Awake()
@@ -29,12 +45,12 @@ public class Enemy : MonoBehaviour
 
         // ��� ���� ������ ��������
         var allMonsterData = monsterTable.GetAllMonsterData();
-
+        //monsterInfo.ContainsKey()
         // ��� ���� �����͸� �ݺ��ؼ� ���
-        foreach (var data in allMonsterData)
-        {
-            Debug.Log($"Monster ID: {data.Mon_ID}, HP: {data.Mon_HP}, Stage_HpuP:{data.Stage_Hpup}");
-        }
+        //foreach (var data in allMonsterData)
+        //{
+        //    Debug.Log($"Monster ID: {data.Mon_ID}, HP: {data.Mon_HP}, Stage_HpuP:{data.Stage_Hpup}");
+        //}
     }
     private void FixedUpdate()
     {

@@ -126,6 +126,7 @@ MonoBehaviour:
   smoothPos: 0
   speed: 0.5
   rb: {fileID: 0}
+  explosionParticle: {fileID: 0}
 --- !u!114 &8441494587867431567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,9 +153,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4200707417351612846}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rotation
-  m_TagString: Untagged
+  m_TagString: ItemEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,7 +187,7 @@ GameObject:
   - component: {fileID: 8476252111858985635}
   m_Layer: 3
   m_Name: Model
-  m_TagString: Untagged
+  m_TagString: ItemEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

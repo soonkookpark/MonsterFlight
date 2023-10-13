@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6590125096826990721}
   m_Layer: 3
   m_Name: Model
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -195,6 +195,7 @@ MonoBehaviour:
   smoothPos: 0
   speed: 0.5
   rb: {fileID: 0}
+  explosionParticle: {fileID: 0}
 --- !u!1 &6962627756783117163
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,7 +207,7 @@ GameObject:
   - component: {fileID: 485347275666494991}
   m_Layer: 0
   m_Name: Rotation
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

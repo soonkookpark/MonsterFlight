@@ -14,8 +14,8 @@ public class AiProjectile : MonoBehaviour
 
     private void Awake()
     {
-        p1 = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShoot>();
         projectileRigid = GetComponent<Rigidbody2D>();
+        p1 = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShoot>();
     }
 
     private void Start()
