@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6537335132280814085}
   - component: {fileID: 5286218021377152720}
   m_Layer: 3
-  m_Name: 103
+  m_Name: MON_103
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -137,12 +137,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHP: 0
-  maxHP: 20
   path: {fileID: 0}
   smoothPos: 0
-  speed: 0.5
+  speed: 0.3
   rb: {fileID: 0}
-  explosionParticle: {fileID: 0}
+  DieEffectPrefab: {fileID: 5588622559632298485, guid: eb4a3a5ca8649154bb6ff8002e2f8cf5, type: 3}
 --- !u!1 &6765772079702880149
 GameObject:
   m_ObjectHideFlags: 0

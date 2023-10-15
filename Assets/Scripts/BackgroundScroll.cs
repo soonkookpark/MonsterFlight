@@ -23,7 +23,7 @@ public class BackgroundScroll : MonoBehaviour
     }
     private void Reposition()
     {
-        var offset = new Vector2(0f, height * 2f);
-        transform.position = (Vector2)transform.position + offset;
+        var offset = new Vector3(0f, height * 2f);
+        transform.position = (Vector3)transform.position + offset;
     }
 }

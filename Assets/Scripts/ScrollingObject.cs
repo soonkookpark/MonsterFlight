@@ -8,6 +8,6 @@ public class ScrollingObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.down * scrollSpeed * Time.deltaTime);   
+        transform.Translate(Vector2.down * scrollSpeed * Time.deltaTime);   
     }
 }

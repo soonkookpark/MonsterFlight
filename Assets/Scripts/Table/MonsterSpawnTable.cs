@@ -9,8 +9,10 @@ using UnityEngine;
 
 public class MonsterSpawnTable : DataTable
 {
+    private string path = "MonsterSpawnTable.csv";
     public class Data
     {
+        
         //Root	PatternType	ApearTime	Way	StartPoint	MonsterID	Amount
         public int Root { get; set; }
         public int PatternType { get; set; }
@@ -23,7 +25,8 @@ public class MonsterSpawnTable : DataTable
     public Dictionary<int, Data> dic = new Dictionary<int, Data>();
     public MonsterSpawnTable()
     {
-        filePath = "Assets/Table/Resources/MonsterSpawnTable.csv";
+        filePath = Path.Combine(Application.streamingAssetsPath, path);
+        Debug.Log(filePath);
         Load();
     }
     public override void Load()
@@ -38,7 +41,6 @@ public class MonsterSpawnTable : DataTable
             Debug.LogError($"Error Loading file:{e.Message}");
         }
         var csvStr = new TextAsset(fileText);
-
         using (TextReader reader = new StringReader(csvStr.text))
         {
             var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture));

@@ -1,8 +1,0 @@
-Mon_ID,Mon_Name,Mon_HP,Mon_ATK,ATK_Num,Stage_Hpup,Type,Mon_Score,Mon_Item
-Mon_101,None,2,1,2,5,1,30000,1
-Mon_102,None,2,1,2,5,1,30000,0
-Mon_103,None,70,1,5,40,2,70000,0
-Mon_104,None,70,1,5,40,2,70000,0
-Mon_105,None,70,1,5,40,2,70000,0
-Mon_106,Boss,1200,1,10,100,3,1000000,0
-Mon_107,Boss,1400,1,10,100,3,1000000,0

@@ -4,11 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.IO.Enumeration;
 using UnityEngine;
 
 public class MonsterTable : DataTable
 {
-    //private string path = "MonsterTable";
+    private string path = "MonsterTable.csv";
 
     public class Data
     {
@@ -27,12 +28,14 @@ public class MonsterTable : DataTable
 
     public MonsterTable()
     {
-        filePath = "Assets/Table/Resources/MonsterTable.csv";
+        filePath = Path.Combine(Application.streamingAssetsPath, path);
+        Debug.Log(filePath);
         Load();
     }
 
     public override void Load()
     {
+        
         string fileText = string.Empty;
         try
         {
@@ -43,7 +46,6 @@ public class MonsterTable : DataTable
             Debug.LogError($"Error Loading file:{e.Message}");
         }
         var csvStr = new TextAsset(fileText);
-
         using (TextReader reader = new StringReader(csvStr.text))
         {
             var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture));

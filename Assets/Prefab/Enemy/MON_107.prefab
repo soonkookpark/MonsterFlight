@@ -11,13 +11,15 @@ GameObject:
   - component: {fileID: 5759465613347192616}
   - component: {fileID: 6994049302134993891}
   - component: {fileID: 7780282408471269911}
-  m_Layer: 0
-  m_Name: BossMonster2
+  - component: {fileID: 8942649402999209057}
+  - component: {fileID: 3105400278067207860}
+  m_Layer: 3
+  m_Name: MON_107
   m_TagString: BossEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5759465613347192616
 Transform:
   m_ObjectHideFlags: 0
@@ -106,6 +108,39 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8942649402999209057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8395235890096455720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff0a7936cf3adb4ba182c4c3c5b2ef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHP: 0
+  path: {fileID: 0}
+  smoothPos: 0
+  speed: 0.05
+  rb: {fileID: 0}
+  DieEffectPrefab: {fileID: 5588622559632298485, guid: eb4a3a5ca8649154bb6ff8002e2f8cf5, type: 3}
+--- !u!114 &3105400278067207860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8395235890096455720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c46f10485e8b0404b8facdbaf4c62337, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyProjectile: {fileID: 0}
+  shotTimer: 0
+  numberOfBullets: 20
 --- !u!1001 &3705708743168105549
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -114,6 +149,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5759465613347192616}
     m_Modifications:
+    - target: {fileID: 708743183280642152, guid: b9d9c474a095ca842981c1b1317c0014, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2204515127135486646, guid: b9d9c474a095ca842981c1b1317c0014, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2787851931312269406, guid: b9d9c474a095ca842981c1b1317c0014, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2989461899426089453, guid: b9d9c474a095ca842981c1b1317c0014, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7697811125328868879, guid: b9d9c474a095ca842981c1b1317c0014, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8035351637391510035, guid: b9d9c474a095ca842981c1b1317c0014, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -154,9 +209,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8035351637391611441, guid: b9d9c474a095ca842981c1b1317c0014, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8035351637391611443, guid: b9d9c474a095ca842981c1b1317c0014, type: 3}
       propertyPath: m_Name
       value: spacefighter
+      objectReference: {fileID: 0}
+    - target: {fileID: 8035351637391611443, guid: b9d9c474a095ca842981c1b1317c0014, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8961101817108540093, guid: b9d9c474a095ca842981c1b1317c0014, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

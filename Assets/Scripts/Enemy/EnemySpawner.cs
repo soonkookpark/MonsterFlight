@@ -1,47 +1,34 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public class Data
-    {
-        //Root	PatternType	ApearTime	Way	StartPoint	MonsterID	Amount
-        public int Root { get; set; }
-        public int PatternType { get; set; }
-        public int AppearTime { get; set; }
-        public int Way { get; set; }
-        public float StartPoint { get; set; }
-        public string Mon_ID { get; set; }
-        public int Amount { get; set; }
-    }
+    
     //public List<EnemyMovement> spawnMonster;
     //public GameObject[] enemies;
-    public Enemy bossEnemy;
-    public Enemy eliteEnemy;
-    public Enemy ItemEnemy;
-    public Enemy normalEnemy;
+    public List<Enemy> enemy;
+    private Enemy reallySpawnEnemy;
+    //public Enemy eliteEnemy;
+    //public Enemy ItemEnemy;
+    //public Enemy normalEnemy;
     public List<CinemachineSmoothPath> smoothPath;
     int currentRoot = 1;
     MonsterSpawnTable monsterSpawnTable;
     private Dictionary<int, MonsterSpawnTable.Data> spawnInfo = new Dictionary<int, MonsterSpawnTable.Data>();
-    //private float spawnTimer = 0;
-    //private float checkItemMonster; //아이템 주는 몬스터 체크
-    //private float numberOfSpawn;//스폰할 수
-    //private float spawnNumber;//스폰 한 수
-    //private float TimeCheck;//현재 흐른 시간
     private int randNum = 0;
     public bool canSpawn = false;
-    public int rootNum;
-    int stageNum;
-    int patternType;
+    int stageNum=1;
+    int courseNum = 1;
+    //int patternType=1;
+    float startPos;
     float spawnTime;
+    //float mag;
     //현재 시간
     float nowAddTime;
-
-
+    string monsterID;
+    int amount;
     private void Awake()
     {
 
@@ -69,172 +56,142 @@ public class EnemySpawner : MonoBehaviour
         {
             spawnInfo[data.Root] = data;
         }
-        // 데이터를 받고
-        // 지금 시간
-        // 지금 타입
-        //Debug.Log(spawnInfo[1]);
+        
     }
     void Update()
     {
+        //while (!GameManager.Instance.IsGameOver && !canSpawn)
         
-        foreach (var data in spawnInfo.Values)
-        {
-            //if(data.PatternType == patternType)
-            {
-                if (data.Root == currentRoot)
-                {
-                    //SpawnMonster(data.Way, data.StartPoint, data.Mon_ID, data.Amount);
-                    currentRoot++;
-                    //Debug.Log(data.Way);
-                    //Debug.Log(data.StartPoint);
-                    //Debug.Log(data.Mon_ID);
-                    //Debug.Log(data.Amount);
-                    if (spawnInfo.Count < data.Root)
-                        currentRoot = 0;
-                }
-                   
-            }
-            
+        //맞는 패턴타입을 찾고
+        //해당패턴타입의 첫 루트를 가져온다.
+        //시간을 측정하고
+        //몬스터가 다 나가면, 루트를 하나 올리고
+        //if (spawnInfo[currentRoot].PatternType == (patternType % 2))
+        //{
+        //    currentRoot++;
+        //    if (spawnInfo.Count <= currentRoot)
+        //    {
+        //        currentRoot = 1;
+        //    }
+        //    if (spawnInfo[currentRoot].PatternType == (patternType % 2))
+        //    {
+        //        var monData = spawnInfo[currentRoot];
+        //        if (monData.AppearTime < nowAddTime)
 
-            //타입을 먼저 부여
-            //patternType = data.Value.PatternType;
-            //spawnTime = data.Value.AppearTime;
-            nowAddTime += Time.deltaTime;
-            if (stageNum % 2 == patternType && spawnTime >= nowAddTime) 
-            {
-                currentRoot = rootNum;
-            }
-            if (GameManager.Instance.IsGameOver)
-            {
-                Destroy(gameObject,30f);
-            }
-            {
-            //if (Input.GetKeyDown(KeyCode.Alpha1))
-            //{
-            //    randNum = 0;
-            //}
-            //if (Input.GetKeyDown(KeyCode.Alpha2))
-            //{
-            //    randNum = 1;
-            //}
-            //if (Input.GetKeyDown(KeyCode.Alpha3))
-            //{
-            //    randNum = 2;
-            //}
-            //if (Input.GetKeyDown(KeyCode.Alpha4))
-            //{
-            //    randNum = 3;
-            //}
-            //if (Input.GetKeyDown(KeyCode.Alpha5))
-            //{
-            //    randNum = 4;
-            //}
+        //            monsterID = monData.Mon_ID; //소환할 몬스터 아이디
+        //        spawnTime = monData.AppearTime; //출현 시간
+        //        courseNum = monData.Way;
+        //        startPos = monData.StartPoint;
+        //        amount = monData.Amount;
+
+
+
+
+
+        //    }
+        //    else
+        //    {
+        //        patternType++;
+        //    }
+
+
+        //}
+
+
+        ////타입을 먼저 부여
+        ////patternType = data.Value.PatternType;
+        ////spawnTime = data.Value.AppearTime;
+        
+        //if (stageNum % 2 == patternType && spawnTime >= nowAddTime)
+        //{
+        //Debug.Log(nowAddTime);
+        //}
+        if (GameManager.Instance.IsGameOver)
+        {
+            Destroy(gameObject, 30f);
         }
-        }
+        
     }
+
     private IEnumerator SpawnEnemies()
     {
+        while (true)
         {
-            //while (!GameManager.Instance.IsGameOver)
-            //{
-            //    enemies = GameObject.FindGameObjectsWithTag("Enemy");
-            //    if (enemies.Length < 15)
-            //    {
-            //        if (Random.Range(0, 2) == 0)
-            //        {
-            //            Instantiate();
-            //        }
-            //        else
-            //        {
-            //            Instantiate(smoothPath[1]);
-            //        }
-            //    }
-            //    bossEnemy = GameObject.FindGameObjectWithTag("BossEnemy");
-            //    if (bossEnemy == null)
-            //    {
-            //        Instantiate(smoothPath[2]);
-            //    }
-            //    yield return new WaitForSeconds(5f);
-            //}
-        }
-        while (!GameManager.Instance.IsGameOver && !canSpawn)
-        {
-            switch(randNum)
+            nowAddTime += Time.deltaTime;
+            //만약 테이블을 다 순회했을 경우
+            if (spawnInfo.Count <= currentRoot)
             {
-                case 0:
-                    SpawnItemMonster(randNum);
-                    for (int i = 0; i < 2; i++)
-                    {
-                        yield return new WaitForSeconds(0.5f);
-                        SpawnNormalMonster(randNum);
-                    }
-                    yield return new WaitForSeconds(2f);
-                    randNum = 1;
-                    break;
-                case 1:
-                    for (int i = 0; i < 3; i++)
-                    {
-                        SpawnNormalMonster(randNum);
-                        yield return new WaitForSeconds(0.7f);
-                    }
-                    yield return new WaitForSeconds(2f);
-                    randNum = 2;
-                    break;
-                case 2:
-                    for (int i = 0; i < 3; i++)
-                    {
-                        SpawnNormalMonster(randNum);
-                        SpawnNormalMonster(randNum+1);
-                        yield return new WaitForSeconds(0.8f);
-                    }
-                    yield return new WaitForSeconds(2f);
-                    randNum = 3;
-                    break;
-                case 3:
-                    for (int i = 0; i < 5; i++)
-                    {
-                        SpawnNormalMonster(randNum+1);
-                        yield return new WaitForSeconds(0.5f);
-                    }
-                    yield return new WaitForSeconds(2f);
-                    randNum = 4;
-                    break;
-                case 4:
-                    for (int i = 0; i < 5; i++)
-                    {
-                        SpawnNormalMonster(randNum + 1);
-                        SpawnNormalMonster(randNum + 2);
-                        yield return new WaitForSeconds(0.5f);
-                    }
-                    yield return new WaitForSeconds(2f);
-                    randNum = 1;
-
-                    break;
-                case 5:
-                    break;
-                case 6:
-                    break;
+                currentRoot = 1;
             }
+            //맞는 패턴타입을 찾고
+            if (spawnInfo[currentRoot].PatternType == (stageNum % 2))
+            {
+                //해당패턴타입의 첫 루트를 가져온다.
+                var monData = spawnInfo[currentRoot];
+                //소환할 시간이 된다면 능력치를 할당함.
+                if (monData.AppearTime < nowAddTime)
+                {
+                    spawnTime = nowAddTime;
+                    monsterID = monData.Mon_ID; //소환할 몬스터 아이디
+                                                //spawnTime = monData.AppearTime; //출현 시간
+                    courseNum = monData.Way;
+                    startPos = monData.StartPoint;
+                    amount = monData.Amount;
+                    SpawnMonster(courseNum, startPos, monsterID, amount);
+                    currentRoot++;
+                    yield return null;
+                }
+                //시간을 측정하고
+                //몬스터가 다 나가면, 루트를 하나 올리고
+            }
+            else
+            {
+                currentRoot++;
+            }
+            //만약 패턴타입이 다른경우 루트를 더해서 맞는 패턴타입을 찾는다.
 
+            //currentRoot++;
+            CheckTable();
+            yield return null;
+            //다르면 번호를 더하고
         }
+    }
+    private void SpawnMonster(int way, float xPos, string ID, int num)
+    {
+
+        foreach(var e in enemy)
+        {
+            if(e.gameObject.name==ID)
+            {
+                reallySpawnEnemy = e;
+                break;
+            }
+        }
+        var realStartPos = new Vector3(smoothPath[way].m_Waypoints[0].position.x + xPos, smoothPath[way].m_Waypoints[0].position.y);
+        var spawnEnemy = Instantiate(reallySpawnEnemy, realStartPos, Quaternion.identity);
+        //spawnEnemy.GetComponent<Enemy>().InitializePath(smoothPath[way], realStartPos);
+        spawnEnemy.path = smoothPath[way];
+        spawnEnemy.SetMonsterID(ID);
+        //나중에 스케일로 난이도 조정할 수 있는 기능 추가
+    }
+    private void CheckTable()
+    {
+        if (spawnInfo.Count < currentRoot)
+            currentRoot = 0;
     }
     private void SpawnNormalMonster(int num)
     {
-        var enemy = Instantiate(normalEnemy, smoothPath[num].m_Waypoints[0].position, Quaternion.identity);
-        enemy.path = smoothPath[num];
+        //var enemy = Instantiate(normalEnemy, smoothPath[num].m_Waypoints[0].position, Quaternion.identity);
+        //enemy.path = smoothPath[num];
+        //enemy.SetMonsterID(monsterID);
     }
     private void SpawnItemMonster(int num)
     {
-        var enemy = Instantiate(ItemEnemy, smoothPath[num].m_Waypoints[0].position, Quaternion.identity);
-        enemy.path = smoothPath[num];
+        //var enemy = Instantiate(ItemEnemy, smoothPath[num].m_Waypoints[0].position, Quaternion.identity);
+        //enemy.path = smoothPath[num];
+       // enemy.SetMonsterID(monsterID);
     }
 
-    private void SpawnMonster(int way, float xPos, string ID, int num)
-    {
-        //var realStartPos = new Vector3(smoothPath[way].m_Waypoints[0].position.x + xPos, smoothPath[way].m_Waypoints[0].position.y);
-        //var enemy = Instantiate(ID, realStartPos, Quaternion.identity);
-        //enemy.path = smoothPath[way];
-    }
     //private IEnumerator SpawnEnemies()
     //{
 
