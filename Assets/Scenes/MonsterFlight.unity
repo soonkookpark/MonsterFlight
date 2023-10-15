@@ -4429,7 +4429,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3082681007449939911, guid: 72049c25ff6e5104899948904aa60a02, type: 3}
       propertyPath: moveSpeed
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6933443517967428531, guid: 72049c25ff6e5104899948904aa60a02, type: 3}
       propertyPath: powerGuage

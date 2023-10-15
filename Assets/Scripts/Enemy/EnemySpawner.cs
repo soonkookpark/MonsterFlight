@@ -1,6 +1,7 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -29,6 +30,7 @@ public class EnemySpawner : MonoBehaviour
     float nowAddTime;
     string monsterID;
     int amount;
+    float speed;
     private void Awake()
     {
 
@@ -60,57 +62,10 @@ public class EnemySpawner : MonoBehaviour
     }
     void Update()
     {
-        //while (!GameManager.Instance.IsGameOver && !canSpawn)
-        
-        //맞는 패턴타입을 찾고
-        //해당패턴타입의 첫 루트를 가져온다.
-        //시간을 측정하고
-        //몬스터가 다 나가면, 루트를 하나 올리고
-        //if (spawnInfo[currentRoot].PatternType == (patternType % 2))
-        //{
-        //    currentRoot++;
-        //    if (spawnInfo.Count <= currentRoot)
-        //    {
-        //        currentRoot = 1;
-        //    }
-        //    if (spawnInfo[currentRoot].PatternType == (patternType % 2))
-        //    {
-        //        var monData = spawnInfo[currentRoot];
-        //        if (monData.AppearTime < nowAddTime)
-
-        //            monsterID = monData.Mon_ID; //소환할 몬스터 아이디
-        //        spawnTime = monData.AppearTime; //출현 시간
-        //        courseNum = monData.Way;
-        //        startPos = monData.StartPoint;
-        //        amount = monData.Amount;
-
-
-
-
-
-        //    }
-        //    else
-        //    {
-        //        patternType++;
-        //    }
-
-
-        //}
-
-
-        ////타입을 먼저 부여
-        ////patternType = data.Value.PatternType;
-        ////spawnTime = data.Value.AppearTime;
-        
-        //if (stageNum % 2 == patternType && spawnTime >= nowAddTime)
-        //{
-        //Debug.Log(nowAddTime);
-        //}
         if (GameManager.Instance.IsGameOver)
         {
             Destroy(gameObject, 30f);
         }
-        
     }
 
     private IEnumerator SpawnEnemies()
@@ -137,7 +92,8 @@ public class EnemySpawner : MonoBehaviour
                     courseNum = monData.Way;
                     startPos = monData.StartPoint;
                     amount = monData.Amount;
-                    SpawnMonster(courseNum, startPos, monsterID, amount);
+                    speed = monData.Speed;
+                    SpawnMonster(courseNum, startPos, monsterID, amount, speed);
                     currentRoot++;
                     yield return null;
                 }
@@ -156,7 +112,7 @@ public class EnemySpawner : MonoBehaviour
             //다르면 번호를 더하고
         }
     }
-    private void SpawnMonster(int way, float xPos, string ID, int num)
+    private void SpawnMonster(int way, float xPos, string ID, int num,float speed)
     {
 
         foreach(var e in enemy)
@@ -172,6 +128,7 @@ public class EnemySpawner : MonoBehaviour
         //spawnEnemy.GetComponent<Enemy>().InitializePath(smoothPath[way], realStartPos);
         spawnEnemy.path = smoothPath[way];
         spawnEnemy.SetMonsterID(ID);
+        spawnEnemy.SetSpeed(speed);
         //나중에 스케일로 난이도 조정할 수 있는 기능 추가
     }
     private void CheckTable()
