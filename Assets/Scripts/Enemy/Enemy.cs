@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
 
     public CinemachineSmoothPath path;
     public float smoothPos;
-    public float speed = 0.5f;
+    private float speed;
     public Rigidbody2D rb;
     private bool isDead = false;
     //public ParticleSystem explosionParticle;
@@ -41,12 +41,17 @@ public class Enemy : MonoBehaviour
         monsterID = id;
         LoadData();
     }
+    public void SetSpeed(float newSpeed)
+    {
+        speed = newSpeed;
+    }
     private void Start()
     {
         //LoadData();
         //enemyHP = maxHP;
         Debug.Log(transform.position);
     }
+
     private void LoadData()
     {
         maxHP = EnemyManager.instance.GetMonsterData(monsterID).Mon_HP;

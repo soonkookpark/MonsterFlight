@@ -21,6 +21,7 @@ public class MonsterSpawnTable : DataTable
         public float StartPoint { get; set; }
         public string Mon_ID { get; set; }
         public int Amount { get; set; }
+        public float Speed { get; set; }
     }
     public Dictionary<int, Data> dic = new Dictionary<int, Data>();
     public MonsterSpawnTable()
