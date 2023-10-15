@@ -62,7 +62,7 @@ public class ItemEnemyShoot : MonoBehaviour
             enemyProjectile.transform.position = enemyPos;
 
             // 발사 각도 설정 (원형으로 배치)
-            Vector2 direction = new Vector2(Mathf.Cos(currentAngle * Mathf.Deg2Rad), Mathf.Sin(currentAngle * Mathf.Deg2Rad));
+            Vector2 direction = new Vector2(Mathf.Cos(currentAngle * Mathf.Deg2Rad), -Mathf.Sin(currentAngle * Mathf.Deg2Rad));
 
             var rb = enemyProjectile.GetComponent<Rigidbody2D>();
             rb.velocity = direction * 10;

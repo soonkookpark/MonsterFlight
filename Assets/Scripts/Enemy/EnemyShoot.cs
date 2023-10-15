@@ -12,7 +12,7 @@ public class EnemyShoot : MonoBehaviour
     public float shotTimer;
     private float disableTimer = 0f;
     public int numberOfBullets = 30;
-
+    private float bulletSpeed = 10f;
     GameObject playerPos;
     // Update is called once per frame
    
@@ -27,7 +27,14 @@ public class EnemyShoot : MonoBehaviour
         if (shotTimer > shotDelay)
         {
             shotTimer = 0;
-            NormalShot();
+            if (gameObject.name != "MON_102(Clone)")
+            { 
+                EliteShot(); 
+            }
+            else
+            {
+                NormalShot();
+            }
 
         }
         disableTimer += Time.deltaTime;
@@ -68,5 +75,38 @@ public class EnemyShoot : MonoBehaviour
             //enemyProjectile.transform.position = transform.position+new Vector3(0,-1,0);
         }
     }
+    private void EliteShot()
+    {
+        int shootCount = 0;
+        var enemyPos = transform.position;
+        var rotateAngle = 15f;
+        var firstRot = -15f;
+        while (shootCount < 3)
+        {
+            GameObject enemyProjectile = ObjectManager.instance.GetEnemyBullet();
+            var rb = enemyProjectile.GetComponent<Rigidbody2D>();
+            rb.transform.position = enemyPos;
+            enemyProjectile.SetActive(true);
+            var rotation = Quaternion.Euler(new Vector3(0, 0, firstRot));
+            if (enemyProjectile != null)
+            {
+                if (shootCount < 1)
+                {
+                    var direction = rotation * Vector2.down;
+                    rb.AddForce(direction* bulletSpeed, ForceMode2D.Impulse);
+                }
+                else
+                {
+                    rotation = Quaternion.Euler(new Vector3(0, 15f, (firstRot+rotateAngle*shootCount)));
+                    var direction = rotation * Vector2.down;
+                    rb.AddForce(direction * bulletSpeed, ForceMode2D.Impulse);
+                }
 
+
+                shootCount++;
+               
+            }
+        }
+
+    }
 }
