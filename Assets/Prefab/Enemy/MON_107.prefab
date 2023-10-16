@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 7780282408471269911}
   - component: {fileID: 8942649402999209057}
   - component: {fileID: 3105400278067207860}
+  - component: {fileID: 5005449407299318621}
   m_Layer: 3
   m_Name: MON_107
   m_TagString: BossEnemy
@@ -246,6 +247,18 @@ MonoBehaviour:
   firePos3: {fileID: 6589936919828538214}
   shotTimer: 0
   numberOfBullets: 20
+--- !u!114 &5005449407299318621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8395235890096455720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159225bf7968d0c44a91d7d068dc721e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3705708743168105549
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -432,7 +445,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2904331040692308215, guid: 5a2a914da342a0141b630cc58e1d6984, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -2955946270765988824, guid: 5a2a914da342a0141b630cc58e1d6984, type: 3}
@@ -500,7 +513,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2904331040692308215, guid: 5a2a914da342a0141b630cc58e1d6984, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -2955946270765988824, guid: 5a2a914da342a0141b630cc58e1d6984, type: 3}
@@ -568,7 +581,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2904331040692308215, guid: 5a2a914da342a0141b630cc58e1d6984, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -2955946270765988824, guid: 5a2a914da342a0141b630cc58e1d6984, type: 3}
@@ -636,7 +649,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2904331040692308215, guid: 5a2a914da342a0141b630cc58e1d6984, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6300647451448766701, guid: 5a2a914da342a0141b630cc58e1d6984, type: 3}
       propertyPath: m_LocalPosition.x
@@ -712,7 +725,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2904331040692308215, guid: 5a2a914da342a0141b630cc58e1d6984, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -2955946270765988824, guid: 5a2a914da342a0141b630cc58e1d6984, type: 3}
@@ -780,7 +793,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2904331040692308215, guid: 5a2a914da342a0141b630cc58e1d6984, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -2955946270765988824, guid: 5a2a914da342a0141b630cc58e1d6984, type: 3}

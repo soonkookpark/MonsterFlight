@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8575959884844635231}
   - component: {fileID: 6537335132280814085}
   - component: {fileID: 5286218021377152720}
+  - component: {fileID: 1130675274475081761}
   m_Layer: 3
   m_Name: MON_103
   m_TagString: Enemy
@@ -143,6 +144,23 @@ MonoBehaviour:
   smoothPos: 0
   rb: {fileID: 0}
   DieEffectPrefab: {fileID: 5588622559632298485, guid: eb4a3a5ca8649154bb6ff8002e2f8cf5, type: 3}
+  FireEffectPrefab: {fileID: 0}
+--- !u!114 &1130675274475081761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3031146394928347469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159225bf7968d0c44a91d7d068dc721e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitColor: {r: 1, g: 1, b: 1, a: 1}
+  duration: 0.2
+  minEmission: 1
+  maxEmission: 3
 --- !u!1 &4917672958921802991
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,7 +250,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.14, y: 0.14, z: 0.14}
+  m_LocalScale: {x: 0.12, y: 0.12, z: 0.12}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4142742095800776002}

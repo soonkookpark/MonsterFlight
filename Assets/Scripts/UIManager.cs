@@ -38,7 +38,7 @@ public class UIManager : MonoBehaviour
 
     public void UpdateLifeText(int life)
     {
-        var lifeTextEx = ("Score : " + life).ToString();
+        var lifeTextEx = ("Life : " + life).ToString();
         lifeText.SetText(lifeTextEx); //= "Score : " + newScore;
     }
 }
