@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    
+    public static EnemySpawner instance;
     //public List<EnemyMovement> spawnMonster;
     //public GameObject[] enemies;
     public List<Enemy> enemy;
@@ -33,19 +33,30 @@ public class EnemySpawner : MonoBehaviour
     float speed;
     private void Awake()
     {
-
         // MonsterSpawnTable 클래스의 인스턴스 생성
+        if (instance != null && instance != this)
+        {
+            // 이미 다른 EnemySpawner가 존재하면 현재 스크립트를 파괴
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+
         monsterSpawnTable = new MonsterSpawnTable();
         // 데이터 로드
         monsterSpawnTable.Load();
         // 데이터를 spawnInfo 딕셔너리에 저장
-        LoadData();
-
-
-        //spawnInfo.Add()
+        //LoadData();
     }
     void Start()
     {
+        nowAddTime = 0;
+        amount = 0;
+        speed = 0;
+        currentRoot = 1;
         LoadData();
 
         StartCoroutine(SpawnEnemies());
@@ -64,7 +75,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (GameManager.Instance.IsGameOver)
         {
-            Destroy(gameObject, 30f);
+            //Destroy(gameObject, 30f);
         }
     }
 
@@ -77,6 +88,7 @@ public class EnemySpawner : MonoBehaviour
             if (spawnInfo.Count <= currentRoot)
             {
                 currentRoot = 1;
+                nowAddTime = 0;
             }
             //맞는 패턴타입을 찾고
             if (spawnInfo[currentRoot].PatternType == (stageNum % 2))
@@ -93,7 +105,7 @@ public class EnemySpawner : MonoBehaviour
                     startPos = monData.StartPoint;
                     amount = monData.Amount;
                     speed = monData.Speed;
-                    SpawnMonster(courseNum, startPos, monsterID, amount, speed);
+                    StartCoroutine(SpawnMonster(courseNum, startPos, monsterID, amount, speed));
                     currentRoot++;
                     yield return null;
                 }
@@ -112,7 +124,7 @@ public class EnemySpawner : MonoBehaviour
             //다르면 번호를 더하고
         }
     }
-    private void SpawnMonster(int way, float xPos, string ID, int num,float speed)
+    private IEnumerator SpawnMonster(int way, float xPos, string ID, int num,float speed)
     {
 
         foreach(var e in enemy)
@@ -124,44 +136,23 @@ public class EnemySpawner : MonoBehaviour
             }
         }
         var realStartPos = new Vector3(smoothPath[way].m_Waypoints[0].position.x + xPos, smoothPath[way].m_Waypoints[0].position.y);
-        var spawnEnemy = Instantiate(reallySpawnEnemy, realStartPos, Quaternion.identity);
-        //spawnEnemy.GetComponent<Enemy>().InitializePath(smoothPath[way], realStartPos);
-        spawnEnemy.path = smoothPath[way];
-        spawnEnemy.SetMonsterID(ID);
-        spawnEnemy.SetSpeed(speed);
+        for(int i = 0; i < num; i++) 
+        { 
+            var spawnEnemy = Instantiate(reallySpawnEnemy, realStartPos, Quaternion.identity);
+            //spawnEnemy.GetComponent<Enemy>().InitializePath(smoothPath[way], realStartPos);
+            spawnEnemy.path = smoothPath[way];
+            spawnEnemy.SetMonsterID(ID);
+            spawnEnemy.SetSpeed(speed);
+            yield return new WaitForSeconds(0.5f);
+        }
         //나중에 스케일로 난이도 조정할 수 있는 기능 추가
     }
     private void CheckTable()
     {
         if (spawnInfo.Count < currentRoot)
-            currentRoot = 0;
+        {
+            currentRoot = 1;
+            nowAddTime = 0;
+        }
     }
-    private void SpawnNormalMonster(int num)
-    {
-        //var enemy = Instantiate(normalEnemy, smoothPath[num].m_Waypoints[0].position, Quaternion.identity);
-        //enemy.path = smoothPath[num];
-        //enemy.SetMonsterID(monsterID);
-    }
-    private void SpawnItemMonster(int num)
-    {
-        //var enemy = Instantiate(ItemEnemy, smoothPath[num].m_Waypoints[0].position, Quaternion.identity);
-        //enemy.path = smoothPath[num];
-       // enemy.SetMonsterID(monsterID);
-    }
-
-    //private IEnumerator SpawnEnemies()
-    //{
-
-    //    switch(randNum)
-    //    {
-    //        case 0:
-    //            SpawnItemPath();
-    //            break;
-    //    }
-
-    //    yield return new WaitForSeconds(3f);
-    //}
-
-    //itemenemy 체크하는곳
-
 }

@@ -14,12 +14,14 @@ public class Projectile : MonoBehaviour
     {
         projectileRigid = GetComponent<Rigidbody2D>();
         p1 = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShoot>();
-
+        Debug.Log("1¹ø"+p1);
     }
 
     // Start is called before the first frame update
     private void Start()
     {
+        //p1 = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShoot>();
+        Debug.Log("2¹ø" + p1);
         ProjectileMove();
         Destroy(gameObject,3f);
     }
@@ -33,7 +35,8 @@ public class Projectile : MonoBehaviour
     {
         if(collision.CompareTag("Enemy")|| collision.CompareTag("ItemEnemy")|| collision.CompareTag("BossEnemy"))
         {
-            //p1.CountUp();
+            //Debug.Log("3¹ø" + p1);
+            p1.CountUp();
             Destroy(gameObject);
             collision.GetComponent<Enemy>().TakeDamage(damage);
         }

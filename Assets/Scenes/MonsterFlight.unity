@@ -1631,7 +1631,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.25490198}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.14901961}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2224,6 +2224,7 @@ MonoBehaviour:
   - {fileID: 446832233}
   - {fileID: 1820451799}
   - {fileID: 8222903831747772165}
+  - {fileID: 8222903831747772166}
   canSpawn: 0
 --- !u!114 &940025818
 MonoBehaviour:
@@ -2587,7 +2588,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -20, y: 20}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 288.1063, y: 50}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1176476212
 MonoBehaviour:
@@ -2609,7 +2610,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Life : 3'
+  m_text: 'Life : 10'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6c2b6779f2cc18a4481f410c04ec4671, type: 2}
   m_sharedMaterial: {fileID: 5546147586986718142, guid: 6c2b6779f2cc18a4481f410c04ec4671, type: 2}
@@ -2672,7 +2673,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0.34414637, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2832,7 +2833,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 1532522283}
   m_HandleRect: {fileID: 0}
@@ -4355,9 +4356,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: MonsterPath
       objectReference: {fileID: 0}
-    - target: {fileID: 2216215272701336151, guid: 762da352567b9f3409b3fd54302d5252, type: 3}
-      propertyPath: m_Resolution
-      value: 100
+    - target: {fileID: 5129502420911497587, guid: 762da352567b9f3409b3fd54302d5252, type: 3}
+      propertyPath: m_Waypoints.Array.data[3].position.x
+      value: -3.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 5129502420911497587, guid: 762da352567b9f3409b3fd54302d5252, type: 3}
+      propertyPath: m_Waypoints.Array.data[5].position.x
+      value: -3.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 5129502420911497587, guid: 762da352567b9f3409b3fd54302d5252, type: 3}
+      propertyPath: m_Waypoints.Array.data[6].position.x
+      value: 1.72
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4367,6 +4376,17 @@ PrefabInstance:
 --- !u!114 &8222903831747772165 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8890039103285238108, guid: 762da352567b9f3409b3fd54302d5252, type: 3}
+  m_PrefabInstance: {fileID: 8222903831747772164}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a200b19ca1a9685429ed7e043c28e904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8222903831747772166 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5129502420911497587, guid: 762da352567b9f3409b3fd54302d5252, type: 3}
   m_PrefabInstance: {fileID: 8222903831747772164}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -4427,9 +4447,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3082681007449939911, guid: 72049c25ff6e5104899948904aa60a02, type: 3}
-      propertyPath: moveSpeed
-      value: 6
+    - target: {fileID: 3598662907738383181, guid: 72049c25ff6e5104899948904aa60a02, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 6153430494137089292, guid: 72049c25ff6e5104899948904aa60a02, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6933443517967428531, guid: 72049c25ff6e5104899948904aa60a02, type: 3}
       propertyPath: powerGuage

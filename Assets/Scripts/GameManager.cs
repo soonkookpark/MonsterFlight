@@ -67,6 +67,10 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         gameOverMsg.SetActive(false);
+        if (EnemySpawner.instance != null)
+        {
+            Destroy(EnemySpawner.instance.gameObject);
+        }
     }
 
     public void OnPlayerDead()

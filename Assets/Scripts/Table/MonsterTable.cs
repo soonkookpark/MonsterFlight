@@ -29,7 +29,7 @@ public class MonsterTable : DataTable
     public MonsterTable()
     {
         filePath = Path.Combine(Application.streamingAssetsPath, path);
-        Debug.Log(filePath);
+        //Debug.Log(filePath);
         Load();
     }
 

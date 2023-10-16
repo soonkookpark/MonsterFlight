@@ -9819,7 +9819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46b2bebc1adf5d54e93c330b10930464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.4
+  moveSpeed: 6
 --- !u!114 &7968584737561874150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9899,6 +9899,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdc19a062fe5efb438886ec7ac9f5dcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MovePos: {x: 0, y: 0, z: 0}
+  speed: 2
 --- !u!1 &3145210900325036982
 GameObject:
   m_ObjectHideFlags: 0
@@ -10035,6 +10037,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3547471564127661967}
   - component: {fileID: 6933443517967428531}
+  - component: {fileID: 2629125932120370083}
   m_Layer: 0
   m_Name: ShootPos
   m_TagString: Player
@@ -10080,13 +10083,24 @@ MonoBehaviour:
   - {fileID: 6152861718231501170}
   - {fileID: 6035362092297712480}
   projectile: {fileID: 2167151931919956044, guid: bcadaae945b08a94ab949edceb187712, type: 3}
-  chargeShot: {fileID: 0}
+  chargeShot: {fileID: 7924253790110830723, guid: ce991cc867c191045a9fa635aaf3c495, type: 3}
   powerGuage: {fileID: 0}
   shootDelay: 0.1
   shootTimer: 0
   subWeaponCount: 0
-  subweaponAttackEnable: 50
   chargeShotNow: 0
+--- !u!114 &2629125932120370083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6153430494137089292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3fde9f1ae6a94a4e94776a276cf2e8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7464793268610037267
 GameObject:
   m_ObjectHideFlags: 0

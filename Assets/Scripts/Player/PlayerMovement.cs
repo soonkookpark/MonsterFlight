@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private float xPosClampMax;
     private float yPosClampMin;
     private float yPosClampMax;
-
+    
     public void Awake()
     {
         playerRigid = GetComponent<Rigidbody2D>();
@@ -33,8 +33,10 @@ public class PlayerMovement : MonoBehaviour
 
             //Joys
             Vector3 movePos = playerRigid.position;
-            movePos.x += PlayerInput.instance.MovePos.x * moveSpeed * Time.deltaTime;
-            movePos.y += PlayerInput.instance.MovePos.y * moveSpeed * Time.deltaTime;
+            movePos.x += PlayerInput.instance.MovePos.x * moveSpeed* Time.deltaTime;
+            movePos.y += PlayerInput.instance.MovePos.y * moveSpeed* Time.deltaTime;
+
+            
             movePos.x = Mathf.Clamp(movePos.x, xPosClampMin, xPosClampMax);
             movePos.y = Mathf.Clamp(movePos.y, yPosClampMin, yPosClampMax);
             playerRigid.MovePosition(movePos);

@@ -10,7 +10,7 @@ public class SwordShoot : PlayerShoot
     public float shootDelay = 0.1f;
     public float shootTimer;
     public float subWeaponCount = 0;
-    public float subweaponAttackEnable = 50;
+    private float subweaponAttackEnable = 10;
     public bool chargeShotNow;
     private float ultTime = 30f;
     private float ultTimer;
@@ -44,9 +44,9 @@ public class SwordShoot : PlayerShoot
 
         if(subWeaponCount >= subweaponAttackEnable)
         {
-            Debug.Log("1번");
-            //ChargeShoot();
-            Debug.Log("2번");
+            //Debug.Log("1번");
+            ChargeShoot();
+            //Debug.Log("2번");
             subWeaponCount = 0;
         }
     }

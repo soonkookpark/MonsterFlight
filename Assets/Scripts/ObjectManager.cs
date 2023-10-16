@@ -9,7 +9,7 @@ public class ObjectManager : MonoBehaviour
 
     public List<GameObject> enemyAttack;
     public GameObject enemyBulletPrefab;
-    private int amountBullet = 200;
+    private int amountBullet = 999;
 
     private void Awake()
     {

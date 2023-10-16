@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ItemEnemyShoot : MonoBehaviour
 {
+    public Transform firePos;
     public EnemyProjectile enemyProjectile;
     public float itemShotDelay = 0.1f;
     public float shotTimer;
@@ -36,12 +37,12 @@ public class ItemEnemyShoot : MonoBehaviour
         }
 
 
-        disableTimer += Time.deltaTime;
-        if (disableTimer >= 2f)
-        {
-            DisableOneBullet();
-            disableTimer = 0f;
-        }
+        //disableTimer += Time.deltaTime;
+        //if (disableTimer >= 2f)
+        //{
+        //    DisableOneBullet();
+        //    disableTimer = 0f;
+        //}
 
     }
 
@@ -58,8 +59,8 @@ public class ItemEnemyShoot : MonoBehaviour
         if (enemyProjectile != null)
         {
             enemyProjectile.SetActive(true);
-            var enemyPos = transform.position;
-            enemyProjectile.transform.position = enemyPos;
+            
+            enemyProjectile.transform.position = firePos.position;
 
             // 발사 각도 설정 (원형으로 배치)
             Vector2 direction = new Vector2(Mathf.Cos(currentAngle * Mathf.Deg2Rad), -Mathf.Sin(currentAngle * Mathf.Deg2Rad));

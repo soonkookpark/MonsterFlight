@@ -12,8 +12,8 @@ public class EnemyManager : MonoBehaviour
     {
         if (instance != null && instance != this)
         {
-            Destroy(this.gameObject);
-            return;
+            //Destroy(this.gameObject);
+            //return;
         }
         instance = this;
         DontDestroyOnLoad(gameObject);

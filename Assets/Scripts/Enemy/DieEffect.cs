@@ -9,4 +9,5 @@ public class DieEffect : MonoBehaviour
         dieParticle.Play();
         Destroy(gameObject, 1.5f);
     }
+
 }

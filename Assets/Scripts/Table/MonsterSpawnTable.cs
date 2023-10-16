@@ -27,7 +27,7 @@ public class MonsterSpawnTable : DataTable
     public MonsterSpawnTable()
     {
         filePath = Path.Combine(Application.streamingAssetsPath, path);
-        Debug.Log(filePath);
+        //Debug.Log(filePath);
         Load();
     }
     public override void Load()

@@ -7,7 +7,7 @@ public class PlayerSetting : MonoBehaviour
 {
     //게임오브젝트로 이펙트 생성
     //public GameObject dieEffect;
-    private int startingHealth = 100;
+    private int startingHealth = 10;
     private int playerhealth;
     public GameObject hitEffect;
     private float invincibleTimeAdd;
@@ -42,8 +42,8 @@ public class PlayerSetting : MonoBehaviour
             //Debug.Log(playerhealth);
             if (playerhealth <= 0 )
             {
-                //gameObject.SetActive(false);
-                //GameManager.Instance.OnPlayerDead();
+                gameObject.SetActive(false);
+                GameManager.Instance.OnPlayerDead();
             }
             else
             {
@@ -59,7 +59,7 @@ public class PlayerSetting : MonoBehaviour
         //gameObject.SetActive(false);
         hitEffect. SetActive(true);
         //// 기다릴 시간 (예: 2초)
-        
+
 
         //Vector3 startPosition = new Vector3(0f, 0f, 0f);
         //Vector3 targetPosition = new Vector3(0f, 2f, 0f); // 화면 중앙 하단 위로 올라갈 위치
@@ -67,7 +67,7 @@ public class PlayerSetting : MonoBehaviour
         //while (elapsedTime < waitTime)
         //{
         //    transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime / waitTime);
-            
+
         //    yield return null;
         //}
 

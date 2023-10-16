@@ -5,8 +5,10 @@ using UnityEngine;
 public class BossEnemyShoot : MonoBehaviour
 {
     public EnemyProjectile enemyProjectile;
-
-    public float shotTimer;
+    public Transform firePos1;
+    public Transform firePos2;
+    public Transform firePos3;
+    public float shotTimer = 2f;
     GameObject playerPos;
     public int numberOfBullets = 20;
     private float currentAngle = 168;
@@ -32,25 +34,43 @@ public class BossEnemyShoot : MonoBehaviour
             currentAngle = 168;
             shotDegreeChange = !shotDegreeChange;
         }
-        BossShot();
+        //StartCoroutine(BossAllShot());
 
-        shotTimer += Time.deltaTime;
-        if(shotTimer>2f)
-        {
-            shotCount = 0;
-            shotTimer = 0f;
-        }
+    }
+    private IEnumerator BossAllShot()
+    {
+        //ShotReset();
+        BossShot2();
+        //yield return new WaitForSeconds(shotTimer);
+        BossShot1();
+        ShotReset();
+        yield return null;
 
-        disableTimer += Time.deltaTime;
-        if (disableTimer >= 2f)
+    }
+    private void ShotReset()
+    {
+        shotCount = 0;
+    }
+    private void BossShot2()
+    {
+        while (shotCount < 2)
         {
-            DisableOneBullet();
-            disableTimer = 0f;
+            GameObject enemyProjectile = ObjectManager.instance.GetEnemyBullet();
+            enemyProjectile.SetActive(true);
+            var rb = enemyProjectile.GetComponent<Rigidbody2D>();
+            rb.transform.position = firePos1.position;
+            if (enemyProjectile != null)
+            {
+                if(shotCount<1)
+                    rb.transform.position = firePos2.position;
+                else
+                    rb.transform.position = firePos3.position;
+                rb.AddForce(Vector2.down * 10f, ForceMode2D.Impulse);
+            }
+            shotCount++;
         }
     }
-
-
-    private void BossShot()
+    private void BossShot1()
     {
         while(shotCount <20)
         {
@@ -65,8 +85,8 @@ public class BossEnemyShoot : MonoBehaviour
             {
                 enemyProjectile.SetActive(true);
 
-                var enemyPos = transform.position;
-                enemyProjectile.transform.position = enemyPos;
+                //var enemyPos = transform.position;
+                enemyProjectile.transform.position = firePos1.position;
 
                 // 발사 각도 설정 (원형으로 배치)
                 Vector2 direction = new(Mathf.Cos(currentAngle * Mathf.Deg2Rad), Mathf.Sin(currentAngle * Mathf.Deg2Rad));

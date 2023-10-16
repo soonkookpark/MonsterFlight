@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyShoot : MonoBehaviour
 {
-    
+    public Transform FirePos;
     public static EnemyProjectile enemyProjectile;
     public float shotDelay = 1;
     public float itemShotDelay = 0.1f;

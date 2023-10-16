@@ -19873,7 +19873,7 @@ GameObject:
   - component: {fileID: -2859862975749578014}
   m_Layer: 0
   m_Name: AIBullet
-  m_TagString: Untagged
+  m_TagString: Aibullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

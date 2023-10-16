@@ -29,7 +29,7 @@ public static class DataTableMgr
     public static void LoadAll()
     {
         //tables.Add(, new MyDataTable());
-        Debug.Log(tables);
+        //Debug.Log(tables);
         foreach (var item in tables)
         {
             item.Value.Load();

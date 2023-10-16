@@ -95,6 +95,7 @@ Transform:
   - {fileID: 6305916464378550312}
   - {fileID: 5898585611483903387}
   - {fileID: 5478324649893930576}
+  - {fileID: 7007060386239640733}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2211547947164704748
@@ -196,7 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a200b19ca1a9685429ed7e043c28e904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Resolution: 13
+  m_Resolution: 100
   m_Appearance:
     pathColor: {r: 0, g: 1, b: 0, a: 1}
     inactivePathColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
@@ -493,6 +494,75 @@ MonoBehaviour:
   - position: {x: 3.66458, y: 0.10259271, z: 0}
     roll: 0
   - position: {x: -0.4312086, y: -9.697871, z: 0}
+    roll: 0
+--- !u!1 &4633042470937254273
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7007060386239640733}
+  - component: {fileID: 5129502420911497587}
+  m_Layer: 0
+  m_Name: no11Path
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7007060386239640733
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4633042470937254273}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.7061908, y: -5.1409583, z: 0.07208355}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 280765827873180271}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5129502420911497587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4633042470937254273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a200b19ca1a9685429ed7e043c28e904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Resolution: 100
+  m_Appearance:
+    pathColor: {r: 0, g: 1, b: 0, a: 1}
+    inactivePathColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    width: 0
+  m_Looped: 0
+  m_Waypoints:
+  - position: {x: 0.06, y: 13.32, z: 0}
+    roll: 0
+  - position: {x: -1.08, y: -6.7, z: 0}
+    roll: 0
+  - position: {x: 3.54, y: 3.03, z: 0}
+    roll: 0
+  - position: {x: -4.6, y: -2.96, z: 0}
+    roll: 0
+  - position: {x: -2.9, y: -3.9, z: 0}
+    roll: 0
+  - position: {x: -4.3, y: 0.7, z: 0}
+    roll: 0
+  - position: {x: 7.5, y: 6.1, z: 0}
+    roll: 0
+  - position: {x: -0.6, y: -4.6, z: 0}
+    roll: 0
+  - position: {x: 0.03, y: -14.7, z: 0}
     roll: 0
 --- !u!1 &6373845823155141364
 GameObject:

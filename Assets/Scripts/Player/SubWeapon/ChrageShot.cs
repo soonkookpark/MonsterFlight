@@ -37,7 +37,7 @@ public class ChargeShot : MonoBehaviour
     {
         if(collision.CompareTag("EnemyBullet"))
         {
-            Debug.Log("具 何碟躯促");
+            //Debug.Log("具 何碟躯促");
             collision.gameObject.SetActive(false);
         }
 

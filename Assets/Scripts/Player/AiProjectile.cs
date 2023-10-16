@@ -21,6 +21,7 @@ public class AiProjectile : MonoBehaviour
     private void Start()
     {
 
+        
         Destroy(gameObject, 3f);
     }
 
@@ -68,6 +69,7 @@ public class AiProjectile : MonoBehaviour
     {
         if (collision.CompareTag("Enemy") || collision.CompareTag("ItemEnemy") || collision.CompareTag("BossEnemy"))
         {
+            //Debug.Log("4¹ø" + p1);
             p1.CountUp();
             Destroy(gameObject);
             collision.GetComponent<Enemy>().TakeDamage(damage);
