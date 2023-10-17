@@ -43,14 +43,14 @@ public class GameManager : MonoBehaviour
             Restart();
         }
 
-        //if (!IsGameOver && Input.GetKeyDown(KeyCode.Alpha1))
-        //{
-        //    Time.timeScale *= 1.1f;
-        //}
-        //if (!IsGameOver && Input.GetKeyDown(KeyCode.Alpha2))
-        //{
-        //    Time.timeScale *= 0.9f;
-        //}
+        if (!IsGameOver && Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            Time.timeScale *= 1.1f;
+        }
+        if (!IsGameOver && Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            Time.timeScale *= 0.9f;
+        }
         //if (!IsGameOver && Input.GetKeyDown(KeyCode.Alpha3))
         //{
         //    Time.timeScale = 1f;
@@ -70,6 +70,8 @@ public class GameManager : MonoBehaviour
         if (EnemySpawner.instance != null)
         {
             Destroy(EnemySpawner.instance.gameObject);
+            EnemySpawner.instance = null;
+            
         }
     }
 

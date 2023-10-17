@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameButton : MonoBehaviour
 {
+    
     public GameObject settingMenuUI;
-    private bool IsGamePaused = false;
-    private float nowTimeScale;
+    private static bool IsGamePaused = false;
+    private static float nowTimeScale;
+
 
 
     public void OpenSetting()
     {
-        if(!IsGamePaused)
+        if (!IsGamePaused)
         {
             nowTimeScale = Time.timeScale;
             Time.timeScale = 0f;
@@ -21,6 +22,7 @@ public class GameButton : MonoBehaviour
         }
         else if(IsGamePaused)
         {
+            Debug.Log("гоюл");
             Time.timeScale = nowTimeScale;
             settingMenuUI.SetActive(false);
             IsGamePaused = false;
@@ -30,7 +32,8 @@ public class GameButton : MonoBehaviour
     public void Restart()
     {
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        GameManager.Instance.Restart();
         //gameOverMsg.SetActive(false);
     }
 }

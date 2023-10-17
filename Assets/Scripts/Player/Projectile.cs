@@ -13,7 +13,8 @@ public class Projectile : MonoBehaviour
     private void Awake()
     {
         projectileRigid = GetComponent<Rigidbody2D>();
-        p1 = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShoot>();
+        //p1 = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShoot>();
+        p1 = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<PlayerShoot>();
         //Debug.Log("1¹ø"+p1);
     }
 

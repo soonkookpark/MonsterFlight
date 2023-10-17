@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46f10485e8b0404b8facdbaf4c62337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyProjectile: {fileID: 0}
+  enemyProjectile: {fileID: 5755758046754434002, guid: 9076219c6c7e4694d91fbd348c7d2741, type: 3}
   firePos1: {fileID: 6183376395425617164}
   firePos2: {fileID: 5509202062352332434}
   firePos3: {fileID: 5818120974126713655}
@@ -166,6 +166,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 159225bf7968d0c44a91d7d068dc721e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitColor: {r: 1, g: 1, b: 1, a: 1}
+  duration: 0.2
+  minEmission: 1
+  maxEmission: 3
 --- !u!1 &1886837992268477471
 GameObject:
   m_ObjectHideFlags: 0

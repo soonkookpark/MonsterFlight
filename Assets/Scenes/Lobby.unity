@@ -287,6 +287,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5263712739811740252, guid: b48af2bcba9347e46b4b7862a5a94163, type: 3}
+      propertyPath: social1Link
+      value: https://www.kakaocorp.com/page/service/service/KakaoTalk
+      objectReference: {fileID: 0}
+    - target: {fileID: 5263712739811740252, guid: b48af2bcba9347e46b4b7862a5a94163, type: 3}
+      propertyPath: social2Link
+      value: https://www.instagram.com/sem/campaign/emailsignup/?campaign_id=13530338586&extra_1=s%7Cc%7C547348910614%7Ce%7Cinstargram%7C&placement=&creative=547348910614&keyword=instargram&partner_id=googlesem&extra_2=campaignid%3D13530338586%26adgroupid%3D126262417614%26matchtype%3De%26network%3Dg%26source%3Dnotmobile%26search_or_content%3Ds%26device%3Dc%26devicemodel%3D%26adposition%3D%26target%3D%26targetid%3Dkwd-299214965736%26loc_physical_ms%3D1009871%26loc_interest_ms%3D%26feeditemid%3D%26param1%3D%26param2%3D&gclid=CjwKCAjwvrOpBhBdEiwAR58-3KgUCQocxN8lclLYZZh9jYisbGlKBWndgG9KrxlJAstzzaMDg0RqRRoCMZcQAvD_BwE
+      objectReference: {fileID: 0}
     - target: {fileID: 5263712740313381776, guid: b48af2bcba9347e46b4b7862a5a94163, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -310,6 +318,22 @@ PrefabInstance:
     - target: {fileID: 5263712740313381776, guid: b48af2bcba9347e46b4b7862a5a94163, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5263712740663899845, guid: b48af2bcba9347e46b4b7862a5a94163, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 059d9d3875305924c8af2ae35f523c09, type: 3}
+    - target: {fileID: 5263712740663899845, guid: b48af2bcba9347e46b4b7862a5a94163, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5263712740663899845, guid: b48af2bcba9347e46b4b7862a5a94163, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5263712740663899845, guid: b48af2bcba9347e46b4b7862a5a94163, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

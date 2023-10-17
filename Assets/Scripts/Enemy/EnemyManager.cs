@@ -16,7 +16,7 @@ public class EnemyManager : MonoBehaviour
             //return;
         }
         instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         LoadEnemyData();
     }

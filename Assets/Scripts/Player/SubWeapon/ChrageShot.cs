@@ -17,7 +17,7 @@ public class ChargeShot : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(gameObject,2.5f);
         }
 
         chargeShot = GetComponent<Rigidbody2D>();

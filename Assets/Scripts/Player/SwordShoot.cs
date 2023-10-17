@@ -10,11 +10,19 @@ public class SwordShoot : PlayerShoot
     public float shootDelay = 0.1f;
     public float shootTimer;
     public float subWeaponCount = 0;
-    private float subweaponAttackEnable = 10;
+    private float subweaponAttackEnable = 400;
     public bool chargeShotNow;
     private float ultTime = 30f;
     private float ultTimer;
-    
+    public AudioClip chargeShootSound; // Drag your audio file in the inspector to set this variable.
+    private AudioSource audioSource; // This will play the sound.
+    public AudioClip shootSound; // Drag your audio file in the inspector to set this variable.
+    private AudioSource audioSource1; // This will play the sound.
+    private void Awake()
+    {
+        audioSource1 = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
+    }
     protected override void OnEnable()
     {
         base.OnEnable();
@@ -33,6 +41,7 @@ public class SwordShoot : PlayerShoot
         if(shootTimer>shootDelay)
         {
             Shoot();
+            audioSource1.PlayOneShot(shootSound);
             shootTimer = 0;
         }
 
@@ -57,6 +66,7 @@ public class SwordShoot : PlayerShoot
         {
             Instantiate(projectile, firePos[i].position, Quaternion.identity);
         }
+
     }
 
     public override void CountUp()
@@ -81,7 +91,10 @@ public class SwordShoot : PlayerShoot
     {
         
         Instantiate(chargeShot,transform.position, Quaternion.identity);
-        
+        if (audioSource != null && chargeShootSound != null)
+        { 
+            audioSource.PlayOneShot(chargeShootSound); 
+        }
     }
 
 

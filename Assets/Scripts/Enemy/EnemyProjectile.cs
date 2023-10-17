@@ -28,9 +28,9 @@ public class EnemyProjectile : MonoBehaviour
         if(collision.CompareTag("DieZone")|| collision.CompareTag("DeadZone") || collision.CompareTag("Player"))
         {
             //enemyProjectile.transform.localScale = new Vector2(0.3f, 0.3f);
-            enemyProjectileBoxCollider.size = new Vector2(1f,1f);
+            //enemyProjectileBoxCollider.size = new Vector2(1f,1f);
             //Debug.Log(addTime);
-            gameObject.SetActive(false);
+            this.gameObject.SetActive(false);
         }
     }
 }

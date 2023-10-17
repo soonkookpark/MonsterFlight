@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class BossEnemyShoot : MonoBehaviour
@@ -34,17 +35,17 @@ public class BossEnemyShoot : MonoBehaviour
             currentAngle = 168;
             shotDegreeChange = !shotDegreeChange;
         }
-        //StartCoroutine(BossAllShot());
+        StartCoroutine(BossAllShot());
 
     }
     private IEnumerator BossAllShot()
     {
-        //ShotReset();
+        ShotReset();
         BossShot2();
         //yield return new WaitForSeconds(shotTimer);
-        BossShot1();
+        //BossShot1();
         ShotReset();
-        yield return null;
+        yield return new WaitForSeconds(3f);
 
     }
     private void ShotReset()

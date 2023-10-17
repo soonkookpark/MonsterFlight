@@ -52,7 +52,8 @@ public class PlayerInput : MonoBehaviour
             MovePos.x = (CurrentPos.x - FirstPos.x);
             MovePos.y = (CurrentPos.y - FirstPos.y);
             if (MovePos.x > 1 || MovePos.x < -1|| MovePos.y > 1 || MovePos.y < -1)
-                MovePos = (CurrentPos - FirstPos).normalized;
+                MovePos = (CurrentPos - FirstPos).normalized;   
+            //MovePos = CurrentPos;
             
             //MovePos.Normalize();
             //Debug.Log(MovePos.y);

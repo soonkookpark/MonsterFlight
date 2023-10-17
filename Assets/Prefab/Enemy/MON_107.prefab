@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46f10485e8b0404b8facdbaf4c62337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyProjectile: {fileID: 0}
+  enemyProjectile: {fileID: 5755758046754434002, guid: 9076219c6c7e4694d91fbd348c7d2741, type: 3}
   firePos1: {fileID: 1387212764450273217}
   firePos2: {fileID: 6711760225202376805}
   firePos3: {fileID: 6589936919828538214}
@@ -259,6 +259,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 159225bf7968d0c44a91d7d068dc721e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitColor: {r: 1, g: 1, b: 1, a: 1}
+  duration: 0.2
+  minEmission: 1
+  maxEmission: 3
 --- !u!1001 &3705708743168105549
 PrefabInstance:
   m_ObjectHideFlags: 0
