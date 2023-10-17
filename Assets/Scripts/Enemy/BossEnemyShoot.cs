@@ -43,7 +43,7 @@ public class BossEnemyShoot : MonoBehaviour
         ShotReset();
         BossShot2();
         //yield return new WaitForSeconds(shotTimer);
-        //BossShot1();
+        BossShot1();
         ShotReset();
         yield return new WaitForSeconds(3f);
 
