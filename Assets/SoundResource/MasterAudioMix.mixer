@@ -6,7 +6,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Bgm
+  m_Name: BGM
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: f84967835c66cf740b788b553a1bcb6d
   m_Children: []
@@ -69,11 +69,11 @@ AudioMixerController:
   m_UpdateMode: 0
   m_ExposedParameters:
   - guid: c694c9909aca0f34cb8ed36d20ae19f1
-    name: MyExposedParam 2
+    name: BGM
   - guid: 63a0aec5664263e4ba8922982d96d711
-    name: MyExposedParam 1
+    name: Effect
   - guid: 7dfb6fd8a39387647b98f96ae19d4c21
-    name: MyExposedParam
+    name: Master
   m_AudioMixerGroupViews:
   - guids:
     - a09ab17607d79204db94286175fb8e79
@@ -129,6 +129,7 @@ AudioMixerSnapshotController:
   m_FloatValues:
     c694c9909aca0f34cb8ed36d20ae19f1: 0
     63a0aec5664263e4ba8922982d96d711: 0
+    7dfb6fd8a39387647b98f96ae19d4c21: 0
     1e3f9ed92d555574e808ee1dbc558081: 1
   m_TransitionOverrides: {}
 --- !u!244 &5267779388972029792

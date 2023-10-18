@@ -9,16 +9,22 @@ public class BossEnemyShoot : MonoBehaviour
     public Transform firePos1;
     public Transform firePos2;
     public Transform firePos3;
-    public float shotTimer = 2f;
+    public float shotTimer1 = 1.4f;
+    public float shotTimer2 = 3f;
     GameObject playerPos;
     public int numberOfBullets = 20;
     private float currentAngle = 168;
     private float angleIncrement;
-    private int shotCount;
-    private float disableTimer = 0f;
+    private int shotCount1;
+    private int shotCount2;
+    private float disableTimer1 = 0f;
+    private float disableTimer2 = 0f;
     private bool shotDegreeChange = true;
+
     private void Update()
     {
+        disableTimer1 += Time.deltaTime;
+        disableTimer2 += Time.deltaTime;
         playerPos = GameObject.FindGameObjectWithTag("Player");
         if (playerPos == null)
         {
@@ -35,26 +41,35 @@ public class BossEnemyShoot : MonoBehaviour
             currentAngle = 168;
             shotDegreeChange = !shotDegreeChange;
         }
-        StartCoroutine(BossAllShot());
+        BossAllShot();
 
     }
-    private IEnumerator BossAllShot()
+    private void BossAllShot()
     {
-        ShotReset();
-        BossShot2();
-        //yield return new WaitForSeconds(shotTimer);
-        BossShot1();
-        ShotReset();
-        yield return new WaitForSeconds(3f);
-
+        if (shotTimer1 < disableTimer1)
+        {
+            Shot1Reset();
+            BossShot2();
+            disableTimer1 = 0;
+        }
+        if (shotTimer2 < disableTimer2)
+        {
+            Shot2Reset();
+            BossShot1();
+            disableTimer2 = 0;
+        }
     }
-    private void ShotReset()
+    private void Shot1Reset()
     {
-        shotCount = 0;
+        shotCount1 = 0;
+    }
+    private void Shot2Reset()
+    {
+        shotCount2 = 0;
     }
     private void BossShot2()
     {
-        while (shotCount < 2)
+        while (shotCount2 < 2)
         {
             GameObject enemyProjectile = ObjectManager.instance.GetEnemyBullet();
             enemyProjectile.SetActive(true);
@@ -62,18 +77,18 @@ public class BossEnemyShoot : MonoBehaviour
             rb.transform.position = firePos1.position;
             if (enemyProjectile != null)
             {
-                if(shotCount<1)
+                if(shotCount2<1)
                     rb.transform.position = firePos2.position;
                 else
                     rb.transform.position = firePos3.position;
                 rb.AddForce(Vector2.down * 10f, ForceMode2D.Impulse);
             }
-            shotCount++;
+            shotCount2++;
         }
     }
     private void BossShot1()
     {
-        while(shotCount <20)
+        while(shotCount1 <20)
         {
             
             GameObject enemyProjectile = ObjectManager.instance.GetEnemyBullet();
@@ -97,22 +112,11 @@ public class BossEnemyShoot : MonoBehaviour
 
                 // 다음 발사할 총알의 각도를 설정 (누적)
                 currentAngle += angleIncrement;
-                shotCount++;
+                shotCount1++;
                 //Debug.Log(rb.velocity);
                 //Debug.Log(currentAngle);
             }
         }
     }
-    private void DisableOneBullet()
-    {
-        foreach (GameObject bullet in ObjectManager.instance.enemyAttack)
-        {
-            if (bullet.activeInHierarchy)
-            {
 
-                bullet.SetActive(false);
-                break; // 하나만 비활성화하고 나가기
-            }
-        }
-    }
 }

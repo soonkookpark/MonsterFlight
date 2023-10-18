@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
 
             //Joys
             Vector3 movePos = playerRigid.position;
-            Debug.Log(PlayerInput.instance.MovePos);
+            //Debug.Log(PlayerInput.instance.MovePos);
             movePos.x += PlayerInput.instance.MovePos.x * moveSpeed* Time.deltaTime;
             movePos.y += PlayerInput.instance.MovePos.y * moveSpeed* Time.deltaTime;
 

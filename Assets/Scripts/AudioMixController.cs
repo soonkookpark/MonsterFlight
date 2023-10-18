@@ -14,23 +14,24 @@ public class AudioMixController : MonoBehaviour
     private void Awake()
     {
         m_MusicMasterSlider.onValueChanged.AddListener(SetMasterVolume);
-        m_MusicBGMSlider.onValueChanged.AddListener(SetMusicVolume);
-        m_MusicEffectSlider.onValueChanged.AddListener(SetSFXVolume);
+        m_MusicBGMSlider.onValueChanged.AddListener(SetBGMVolume);
+        m_MusicEffectSlider.onValueChanged.AddListener(SetEffectVolume);
     }
 
     public void SetMasterVolume(float volume)
     {
-        m_AudioMixer.SetFloat("Master", Mathf.Log10(volume) * 20);
+        m_AudioMixer.SetFloat("Master", Mathf.Log10(volume) * 40);
+        Debug.Log(volume);
     }
 
-    public void SetMusicVolume(float volume)
+    public void SetBGMVolume(float volume)
     {
-        m_AudioMixer.SetFloat("BGM", Mathf.Log10(volume) * 20);
+        m_AudioMixer.SetFloat("BGM", Mathf.Log10(volume) * 40);
     }
 
-    public void SetSFXVolume(float volume)
+    public void SetEffectVolume(float volume)
     {
-        m_AudioMixer.SetFloat("Effect", Mathf.Log10(volume) * 20);
+        m_AudioMixer.SetFloat("Effect", Mathf.Log10(volume) * 40);
     }
 }
 

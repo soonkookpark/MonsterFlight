@@ -8,6 +8,8 @@ public class GameButton : MonoBehaviour
     public GameObject settingMenuUI;
     private static bool IsGamePaused = false;
     private static float nowTimeScale;
+    public GameObject SoundMenuUI;
+    private static bool IsSoundMenuOpen = false;
 
 
 
@@ -20,9 +22,9 @@ public class GameButton : MonoBehaviour
             settingMenuUI.SetActive(true);
             IsGamePaused = true;
         }
-        else if(IsGamePaused)
+        else if(IsGamePaused&&!IsSoundMenuOpen&&settingMenuUI)
         {
-            Debug.Log("하이");
+            //Debug.Log("하이");
             Time.timeScale = nowTimeScale;
             settingMenuUI.SetActive(false);
             IsGamePaused = false;
@@ -36,4 +38,19 @@ public class GameButton : MonoBehaviour
         GameManager.Instance.Restart();
         //gameOverMsg.SetActive(false);
     }
+    public void SoundMenu()
+    {
+        if(!IsSoundMenuOpen)
+        {
+            SoundMenuUI.SetActive(true);
+            IsSoundMenuOpen = true;
+        }
+        else if(IsSoundMenuOpen)
+        {
+            SoundMenuUI.SetActive(false);
+            IsSoundMenuOpen = false;
+        }
+    }
+
+    
 }
