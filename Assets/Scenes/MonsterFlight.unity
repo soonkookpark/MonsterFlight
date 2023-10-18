@@ -3784,6 +3784,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc9141e38375c2649bc387a3612acddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Backgrounds:
+  - {fileID: 1312568731}
+  - {fileID: 1094498687}
+  - {fileID: 1416369632}
   enemy:
   - {fileID: 7650693617974384678, guid: 5cf2b4242329fa74f99af48f72b90628, type: 3}
   - {fileID: 7650693617974384678, guid: 7ad64fdb0bab9b442ba69e319b225a27, type: 3}
@@ -4410,6 +4414,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1092304084}
   m_CullTransparentMesh: 1
+--- !u!1 &1094498687 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3477758656829725213, guid: a8b58584203a6bf42b50df2dbe9b1686, type: 3}
+  m_PrefabInstance: {fileID: 4735921029041581266}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1097945635
 GameObject:
   m_ObjectHideFlags: 0
@@ -5925,6 +5934,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settingMenuUI: {fileID: 2089304070}
   SoundMenuUI: {fileID: 0}
+--- !u!1 &1312568731 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 558735482365077621, guid: a8b58584203a6bf42b50df2dbe9b1686, type: 3}
+  m_PrefabInstance: {fileID: 4735921029041581266}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1372302429
 GameObject:
   m_ObjectHideFlags: 0
@@ -6059,6 +6073,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1372302429}
   m_CullTransparentMesh: 1
+--- !u!1 &1416369632 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4289055342959541102, guid: a8b58584203a6bf42b50df2dbe9b1686, type: 3}
+  m_PrefabInstance: {fileID: 4735921029041581266}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1437160581
 GameObject:
   m_ObjectHideFlags: 0
