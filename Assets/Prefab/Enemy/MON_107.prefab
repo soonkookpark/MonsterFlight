@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 227108143977364312}
   serializedVersion: 2
   m_LocalRotation: {x: -1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: -4.689464, y: 4.069441, z: 0}
+  m_LocalPosition: {x: -1.134191, y: 0.78732395, z: -0.14430991}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 4234350910173296707}
   serializedVersion: 2
   m_LocalRotation: {x: -1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: -9.933941, z: 0}
+  m_LocalPosition: {x: 0, y: -1.9867883, z: 0.15399906}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -87,7 +87,7 @@ Transform:
   m_GameObject: {fileID: 7108485192419184016}
   serializedVersion: 2
   m_LocalRotation: {x: -1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 4.689464, y: 4.0694413, z: 0}
+  m_LocalPosition: {x: 1.134191, y: 0.78732395, z: -0.14430991}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -245,7 +245,8 @@ MonoBehaviour:
   firePos1: {fileID: 1387212764450273217}
   firePos2: {fileID: 6711760225202376805}
   firePos3: {fileID: 6589936919828538214}
-  shotTimer: 0
+  shotTimer1: 1.4
+  shotTimer2: 3
   numberOfBullets: 20
 --- !u!114 &5005449407299318621
 MonoBehaviour:

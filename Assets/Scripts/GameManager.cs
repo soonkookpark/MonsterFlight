@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale += gameSpeed;
             callScore = 0;
         }
-        
+        Debug.Log(Time.deltaTime);
     }
     public void Restart()
     {

@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -20,6 +21,7 @@ public class BossEnemyShoot : MonoBehaviour
     private float disableTimer1 = 0f;
     private float disableTimer2 = 0f;
     private bool shotDegreeChange = true;
+    private float term;
 
     private void Update()
     {
@@ -54,9 +56,12 @@ public class BossEnemyShoot : MonoBehaviour
         }
         if (shotTimer2 < disableTimer2)
         {
+            int term = Random.Range(1, 3);
             Shot2Reset();
+
             BossShot1();
-            disableTimer2 = 0;
+            
+            disableTimer2 = term;
         }
     }
     private void Shot1Reset()
