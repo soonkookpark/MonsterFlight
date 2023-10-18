@@ -190,15 +190,15 @@ public class EnemySpawner : MonoBehaviour
             nowAddTime = 0;
             switch (stageNum%3)
             {
-                case 1:
+                case 0:
                     Backgrounds[2].SetActive(false);
                     Backgrounds[0].SetActive(true);
                     break;
-                case 2:
+                case 1:
                     Backgrounds[0].SetActive(false);
                     Backgrounds[1].SetActive(true);
                     break;
-                case 3:
+                case 2:
                     Backgrounds[1].SetActive(false);
                     Backgrounds[2].SetActive(true);
                     break;

@@ -7,7 +7,7 @@ public class ItemEnemyShoot : MonoBehaviour
 {
     public Transform firePos;
     public EnemyProjectile enemyProjectile;
-    public float itemShotDelay = 0.1f;
+    public float itemShotDelay = 0.5f;
     public float shotTimer;
     public int numberOfBullets = 30;
     private float currentAngle = 0f;
@@ -15,7 +15,12 @@ public class ItemEnemyShoot : MonoBehaviour
     private float disableTimer = 0f;
     GameObject playerPos;
     public int shotCount;
+    int randomCount;
     // Update is called once per frame
+    private void Start()
+    {
+        randomCount = Random.RandomRange(1,5);
+    }
     void Update()
     {
         playerPos = GameObject.FindGameObjectWithTag("Player");
@@ -26,14 +31,15 @@ public class ItemEnemyShoot : MonoBehaviour
 
         //¼¦À» ½î°í 30¹ßÀ» ³Ñ±â¸é 5ÃÊ ¼¾ ÈÄ ´Ù½Ã ½î°Ô µÊ.
         shotTimer += Time.deltaTime;
-        if ((shotTimer > itemShotDelay) && shotCount <= 30)
+        if ((shotTimer > itemShotDelay) && shotCount <= randomCount)
         {
-            shotTimer = 0;
+            shotTimer = 0f;
             ItemShot();
         }
-        else if (shotTimer > 5)
+        else if( shotTimer >=0.5f)
         {
             shotCount = 0;
+            randomCount = Random.RandomRange(1, 5);
         }
 
 

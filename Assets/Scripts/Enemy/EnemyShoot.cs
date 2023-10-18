@@ -28,21 +28,16 @@ public class EnemyShoot : MonoBehaviour
         {
             shotTimer = 0;
             if (gameObject.name != "MON_102(Clone)")
-            { 
-                EliteShot(); 
+            {
+                EliteShot();
             }
             else
             {
                 NormalShot();
             }
-
-        }
-        disableTimer += Time.deltaTime;
-        if (disableTimer >= 3f)
-        {
-            
-            //DisableOneBullet();
-            disableTimer = 0f;
+            shotDelay = Random.RandomRange(4, 8);
+            int num = Random.RandomRange(5, 7);
+            shotDelay /= num;
         }
 
     }
