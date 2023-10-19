@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.Properties;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,7 +21,8 @@ public class GameManager : MonoBehaviour
     private int screenWidth = 720;
     private int screenHeight = 1280;
     private bool IsFullScreen = false;
-
+    private int highScore = 0; // 최고 점수 변수 추가
+    public int CurrentScore => score;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -32,35 +34,68 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.LogWarning("GameManager instance already exists, destroying this one.");
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            DontDestroyOnLoad(Instance);
         }
+        //애플리케이션
+        Application.targetFrameRate = 60;
+
+
+        LoadHighScore();
+
+        if (Instance != null)
+            HighScorePrint(highScore);
     }
 
+
+    private void Start()
+    {
+        //LoadHighScore();
+        //if(Instance != null)
+        //HighScorePrint(highScore);
+    }
+    private void LoadHighScore()
+    {
+        var saveFileName = "save_data.json";
+
+        var saveData = SaveLoadSystem.Load(saveFileName);
+
+        if (saveData != null && saveData is SaveDataV1 saveDataV1)
+        {
+            highScore = saveDataV1.HighScore;
+
+            Debug.Log("High score loaded: " + highScore);
+        }
+        else
+        {
+            Debug.LogWarning("No existing save data found.");
+        }
+    }
     private void Update()
     {
-        if (IsGameOver && Input.GetKeyDown(KeyCode.R))
-        {
-            Restart();
-        }
+        //if (IsGameOver && Input.GetKeyDown(KeyCode.R))
+        //{
+        //    Restart();
+        //}
 
-        if (!IsGameOver && Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            Time.timeScale *= 1.1f;
-        }
-        if (!IsGameOver && Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            Time.timeScale *= 0.9f;
-        }
-        if (!IsGameOver && Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            Time.timeScale = 1f;
-        }
+        //if (!IsGameOver && Input.GetKeyDown(KeyCode.Alpha1))
+        //{
+        //    Time.timeScale *= 1.1f;
+        //}
+        //if (!IsGameOver && Input.GetKeyDown(KeyCode.Alpha2))
+        //{
+        //    Time.timeScale *= 0.9f;
+        //}
+        //if (!IsGameOver && Input.GetKeyDown(KeyCode.Alpha3))
+        //{
+        //    Time.timeScale = 1f;
+        //}
         if (callScore>=10)
         {
             Time.timeScale += gameSpeed;
             callScore = 0;
         }
-        Debug.Log(Time.deltaTime);
+        //Debug.Log(Time.deltaTime);
     }
     public void Restart()
     {
@@ -75,7 +110,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private int highScore = 0; // 최고 점수 변수 추가
 
     // ...
 
@@ -85,13 +119,16 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         IsGameOver = true;
 
+        CheckHighscore();
+    }
+    public void CheckHighscore()
+    {
         if (score > highScore) // 현재 점수가 최고 점수보다 높을 경우
         {
             highScore = score; // 최고 점수 갱신
             SaveHighScore(); // 최고 점수 저장
         }
     }
-
     private void SaveHighScore()
     {
         var saveFileName = "save_data.json";
@@ -104,7 +141,10 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("High score saved: " + highScore);
     }
-
+    public void HighScorePrint(int score)
+    {
+        UIManager.instance.PrintHighScore(highScore);
+    }
 
     public void AddScore(int newScore)
     {
@@ -114,7 +154,7 @@ public class GameManager : MonoBehaviour
             // 점수 추가
             score += newScore;
             // 점수 UI 텍스트 갱신
-            UIManager.instance.UpdateScoreText(score);
+            UIManager.instance.UpdateScoreText(score,highScore);
             callScore++;
         }
     }

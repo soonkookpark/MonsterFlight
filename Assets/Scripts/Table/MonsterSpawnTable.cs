@@ -9,7 +9,8 @@ using UnityEngine;
 
 public class MonsterSpawnTable : DataTable
 {
-    private string path = "MonsterSpawnTable.csv";
+    //private string path = "MonsterSpawnTable.csv";
+    private string path = "MonsterSpawnTable";
     public class Data
     {
         
@@ -26,22 +27,25 @@ public class MonsterSpawnTable : DataTable
     public Dictionary<int, Data> dic = new Dictionary<int, Data>();
     public MonsterSpawnTable()
     {
-        filePath = Path.Combine(Application.streamingAssetsPath, path);
+        //filePath = Path.Combine(Application.streamingAssetsPath, path);
+        filePath = path;
         //Debug.Log(filePath);
         Load();
     }
     public override void Load()
     {
-        string fileText = string.Empty;
-        try
-        {
-            fileText = File.ReadAllText(filePath);
-        }
-        catch (Exception e)
-        {
-            Debug.LogError($"Error Loading file:{e.Message}");
-        }
-        var csvStr = new TextAsset(fileText);
+        //string fileText = string.Empty;
+        //try
+        //{
+        //    fileText = File.ReadAllText(filePath);
+        //}
+        //catch (Exception e)
+        //{
+        //    Debug.LogError($"Error Loading file:{e.Message}");
+        //}
+        //var csvStr = new TextAsset(fileText);
+        
+        var csvStr = Resources.Load<TextAsset>(filePath);
         using (TextReader reader = new StringReader(csvStr.text))
         {
             var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture));

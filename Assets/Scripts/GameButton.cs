@@ -34,6 +34,7 @@ public class GameButton : MonoBehaviour
     public void Restart()
     {
         Time.timeScale = 1.0f;
+        IsGamePaused = false;
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         GameManager.Instance.Restart();
         //gameOverMsg.SetActive(false);
