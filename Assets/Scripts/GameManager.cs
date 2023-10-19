@@ -37,6 +37,9 @@ public class GameManager : MonoBehaviour
             //Destroy(gameObject);
             DontDestroyOnLoad(Instance);
         }
+        //애플리케이션
+        Application.targetFrameRate = 60;
+
 
         LoadHighScore();
 
