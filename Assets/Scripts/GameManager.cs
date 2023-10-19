@@ -36,6 +36,29 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        LoadHighScore();
+    }
+    private void LoadHighScore()
+    {
+        var saveFileName = "save_data.json";
+
+        var saveData = SaveLoadSystem.Load(saveFileName);
+
+        if (saveData != null && saveData is SaveDataV1 saveDataV1)
+        {
+            highScore = saveDataV1.HighScore;
+
+            Debug.Log("High score loaded: " + highScore);
+        }
+        else
+        {
+            Debug.LogWarning("No existing save data found.");
+        }
+
+
+    }
     private void Update()
     {
         if (IsGameOver && Input.GetKeyDown(KeyCode.R))
@@ -60,7 +83,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale += gameSpeed;
             callScore = 0;
         }
-        Debug.Log(Time.deltaTime);
+        //Debug.Log(Time.deltaTime);
     }
     public void Restart()
     {
@@ -104,7 +127,10 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("High score saved: " + highScore);
     }
-
+    public void HighScorePrint(int score)
+    {
+        UIManager.instance.PrintHighScore(highScore);
+    }
 
     public void AddScore(int newScore)
     {

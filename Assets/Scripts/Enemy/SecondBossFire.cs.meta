@@ -3,7 +3,13 @@ guid: 24d1af80ee8cc79419581fd982a915fd
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - fire1: {fileID: 4039307265067620480, guid: 70e00fdadd0e1f64dace24094196aa18, type: 3}
+  - fire2: {fileID: 4039307265067620480, guid: 70e00fdadd0e1f64dace24094196aa18, type: 3}
+  - fire3: {instanceID: 0}
+  - fire4: {instanceID: 0}
+  - fire5: {instanceID: 0}
+  - fire6: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

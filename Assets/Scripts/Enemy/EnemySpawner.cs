@@ -94,6 +94,10 @@ public class EnemySpawner : MonoBehaviour
     {
         while (true)
         {
+            if(Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                currentRoot = 120;
+            }
             nowAddTime += Time.deltaTime;
             //만약 테이블을 다 순회했을 경우
             if (spawnInfo.Count < currentRoot)
@@ -116,8 +120,10 @@ public class EnemySpawner : MonoBehaviour
                     startPos = monData.StartPoint;
                     amount = monData.Amount;
                     speed = monData.Speed;
-                    StartCoroutine(SpawnMonster(courseNum, startPos, monsterID, amount, speed));
-                    currentRoot++;
+                    StartCoroutine(SpawnMonster(courseNum, startPos, monsterID, amount, speed, stageNum));
+                    if(nowAddTime < 150)
+                        currentRoot++;
+                    Debug.Log(currentRoot);
                     yield return null;
                 }
                 
@@ -126,7 +132,7 @@ public class EnemySpawner : MonoBehaviour
             }
             else
             {
-                Debug.Log(currentRoot);
+                //Debug.Log(currentRoot);
             }
             if(nowAddTime>= 150)
             {
@@ -149,7 +155,7 @@ public class EnemySpawner : MonoBehaviour
             //다르면 번호를 더하고
         }
     }
-    private IEnumerator SpawnMonster(int way, float xPos, string ID, int num,float speed)
+    private IEnumerator SpawnMonster(int way, float xPos, string ID, int num,float speed, int stageInfo)
     {
 
         foreach(var e in enemy)
@@ -168,13 +174,15 @@ public class EnemySpawner : MonoBehaviour
             spawnEnemy.path = smoothPath[way];
             spawnEnemy.SetMonsterID(ID);
             spawnEnemy.SetSpeed(speed);
+            spawnEnemy.SetHp(stageInfo);
+            //Debug.Log(spawnEnemy.enemyHP);
             yield return new WaitForSeconds(0.5f);
         }
         //나중에 스케일로 난이도 조정할 수 있는 기능 추가
     }
     private void CheckTable()
     {
-        if (spawnInfo.Count < currentRoot)
+        if (spawnInfo.Count <= currentRoot)
         {
             currentRoot = 1;
             nowAddTime = 0;
@@ -186,19 +194,20 @@ public class EnemySpawner : MonoBehaviour
         if (Boss == null&&bossDeath)
         {
             Debug.Log("보스죽음.");
+            currentRoot++;
             stageNum++;
             nowAddTime = 0;
             switch (stageNum%3)
             {
-                case 0:
+                case 1:
                     Backgrounds[2].SetActive(false);
                     Backgrounds[0].SetActive(true);
                     break;
-                case 1:
+                case 2:
                     Backgrounds[0].SetActive(false);
                     Backgrounds[1].SetActive(true);
                     break;
-                case 2:
+                case 0:
                     Backgrounds[1].SetActive(false);
                     Backgrounds[2].SetActive(true);
                     break;

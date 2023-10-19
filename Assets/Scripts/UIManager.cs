@@ -27,6 +27,7 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI scoreText; // 점수 표시용 텍스트
     public TextMeshProUGUI lifeText; // 적 웨이브 표시용 텍스트
     public GameObject gameoverUI; // 게임 오버시 활성화할 UI 
+    public TextMeshProUGUI HighScore;
 
     // 점수 텍스트 갱신
     public void UpdateScoreText(int newScore)
@@ -38,6 +39,12 @@ public class UIManager : MonoBehaviour
     public void UpdateLifeText(int life)
     {
         var lifeTextEx = ("Life : " + life).ToString();
+        lifeText.SetText(lifeTextEx); //= "Score : " + newScore;
+    }
+
+    public void PrintHighScore(int highScore)
+    {
+        var lifeTextEx = ("HIGH SCORE : " + highScore).ToString();
         lifeText.SetText(lifeTextEx); //= "Score : " + newScore;
     }
 }

@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
     //Monster Status
     private string ID;
     private int Hp;
+    private int levelPerHp;
     int score;
     private GameObject bossCheck;
     //parentHitEffect.OnHit();
@@ -61,18 +62,24 @@ public class Enemy : MonoBehaviour
     {
         speed = newSpeed;
     }
-    
+    public void SetHp(float newSpeed)
+    {
+        maxHP += ((newSpeed-1)* levelPerHp);
+        enemyHP = maxHP;
+    }
+
 
     private void LoadData()
     {
         maxHP = EnemyManager.instance.GetMonsterData(monsterID).Mon_HP;
+        levelPerHp = EnemyManager.instance.GetMonsterData(monsterID).Stage_Hpup;
         score = EnemyManager.instance.GetMonsterData(monsterID).Mon_Score;
         //Debug.Log(maxHP);
         if (EnemyManager.instance==null)
         {
             Debug.Log("여기드름.");
         }
-        enemyHP = maxHP;
+        
         //Debug.Log(enemyHP);
     }
     private void FixedUpdate()

@@ -93,14 +93,7 @@ public class MainMenuManager : MonoBehaviour
     Resolution[] resolutions;
 
     #endregion
-    private int screenWidth = 720;
-    private int screenHeight = 1280;
-    private bool IsFullScreen = false;
 
-    private void Awake()
-    {
-        Screen.SetResolution(screenWidth, screenHeight, !IsFullScreen);
-    }
     void Start()
     {
         SetStartUI();
