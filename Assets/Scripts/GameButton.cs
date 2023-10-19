@@ -1,26 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameButton : MonoBehaviour
 {
+    
     public GameObject settingMenuUI;
-    private bool IsGamePaused = false;
-    private float nowTimeScale;
+    private static bool IsGamePaused = false;
+    private static float nowTimeScale;
+    public GameObject SoundMenuUI;
+    private static bool IsSoundMenuOpen = false;
+
 
 
     public void OpenSetting()
     {
-        if(!IsGamePaused)
+        if (!IsGamePaused)
         {
             nowTimeScale = Time.timeScale;
             Time.timeScale = 0f;
             settingMenuUI.SetActive(true);
             IsGamePaused = true;
         }
-        else if(IsGamePaused)
+        else if(IsGamePaused&&!IsSoundMenuOpen&&settingMenuUI)
         {
+            //Debug.Log("гоюл");
             Time.timeScale = nowTimeScale;
             settingMenuUI.SetActive(false);
             IsGamePaused = false;
@@ -30,7 +34,23 @@ public class GameButton : MonoBehaviour
     public void Restart()
     {
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        GameManager.Instance.Restart();
         //gameOverMsg.SetActive(false);
     }
+    public void SoundMenu()
+    {
+        if(!IsSoundMenuOpen)
+        {
+            SoundMenuUI.SetActive(true);
+            IsSoundMenuOpen = true;
+        }
+        else if(IsSoundMenuOpen)
+        {
+            SoundMenuUI.SetActive(false);
+            IsSoundMenuOpen = false;
+        }
+    }
+
+    
 }

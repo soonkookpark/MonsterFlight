@@ -13,15 +13,16 @@ public class Projectile : MonoBehaviour
     private void Awake()
     {
         projectileRigid = GetComponent<Rigidbody2D>();
-        p1 = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShoot>();
-        Debug.Log("1번"+p1);
+        //p1 = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShoot>();
+        p1 = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<PlayerShoot>();
+        //Debug.Log("1번"+p1);
     }
 
     // Start is called before the first frame update
     private void Start()
     {
         //p1 = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShoot>();
-        Debug.Log("2번" + p1);
+        //Debug.Log("2번" + p1);
         ProjectileMove();
         Destroy(gameObject,3f);
     }

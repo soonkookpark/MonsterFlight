@@ -24,7 +24,6 @@ public class UIManager : MonoBehaviour
 
     private static UIManager m_instance; // 싱글톤이 할당될 변수
 
-    public Text ammoText; // 탄약 표시용 텍스트
     public TextMeshProUGUI scoreText; // 점수 표시용 텍스트
     public TextMeshProUGUI lifeText; // 적 웨이브 표시용 텍스트
     public GameObject gameoverUI; // 게임 오버시 활성화할 UI 
@@ -38,7 +37,7 @@ public class UIManager : MonoBehaviour
 
     public void UpdateLifeText(int life)
     {
-        var lifeTextEx = ("Score : " + life).ToString();
+        var lifeTextEx = ("Life : " + life).ToString();
         lifeText.SetText(lifeTextEx); //= "Score : " + newScore;
     }
 }

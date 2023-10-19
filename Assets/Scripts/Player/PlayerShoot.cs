@@ -10,9 +10,6 @@ public class PlayerShoot : MonoBehaviour
 
     }
 
-    public virtual void CountUp()
-    {
-
-    }
+    public virtual void CountUp() {}
     // Update is called once per frame
 }

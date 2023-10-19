@@ -12,7 +12,7 @@ public class EnemyProjectile : MonoBehaviour
     {
         enemyProjectile = GetComponent<Rigidbody2D>();
         enemyProjectileBoxCollider = GetComponent<BoxCollider2D>();
-        enemyProjectile.transform.localScale = new Vector2(0.3f, 0.3f);
+        //enemyProjectile.transform.localScale = new Vector2(0.3f, 0.3f);
     }
 
     private void Update()
@@ -27,10 +27,10 @@ public class EnemyProjectile : MonoBehaviour
     {
         if(collision.CompareTag("DieZone")|| collision.CompareTag("DeadZone") || collision.CompareTag("Player"))
         {
-            enemyProjectile.transform.localScale = new Vector2(0.3f, 0.3f);
-            enemyProjectileBoxCollider.size = new Vector2(1f,1f);
+            //enemyProjectile.transform.localScale = new Vector2(0.3f, 0.3f);
+            //enemyProjectileBoxCollider.size = new Vector2(1f,1f);
             //Debug.Log(addTime);
-            gameObject.SetActive(false);
+            this.gameObject.SetActive(false);
         }
     }
 }

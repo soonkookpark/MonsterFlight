@@ -6,8 +6,9 @@ public class AiProjectile : MonoBehaviour
 {
     PlayerShoot p1;
 
+
     Rigidbody2D projectileRigid;
-    private float speed = 10f;
+    private float speed = 45f;
     public int damage = 1;
 
     private GameObject closestTarget; 
@@ -15,13 +16,13 @@ public class AiProjectile : MonoBehaviour
     private void Awake()
     {
         projectileRigid = GetComponent<Rigidbody2D>();
-        p1 = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShoot>();
+        //p1 = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShoot>();
+        p1 = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<PlayerShoot>();
     }
 
     private void Start()
     {
 
-        
         Destroy(gameObject, 3f);
     }
 

@@ -28,25 +28,21 @@ public class Enemy : MonoBehaviour
     private int Hp;
     int score;
     private GameObject bossCheck;
-    private Color[] originalColors; // 원래 색을 저장할 배열
-    private MeshRenderer[] meshRenderers;
-
+    //parentHitEffect.OnHit();
+    private ChangeColor changeColor;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        
+
+        changeColor = GetComponent<ChangeColor>();
+        if (changeColor == null)
+        {
+            Debug.LogError("No ChangeColor component found on this game object.");
+        }
     }
     void Start()
     {
-        // 게임 오브젝트 내의 모든 MeshRenderer 구성 요소를 가져옴
-        meshRenderers = GetComponentsInChildren<MeshRenderer>();
-
-        // 모든 MeshRenderer에 대해 루프를 돌며 원래 색을 저장하고 변경
-        originalColors = new Color[meshRenderers.Length];
-        for (int i = 0; i < meshRenderers.Length; i++)
-        {
-            originalColors[i] = meshRenderers[i].material.color; // 원래 색을 저장
-        }
+        
     }
 
     public void InitializePath(CinemachineSmoothPath newPath, Vector3 newStartPosition)
@@ -104,12 +100,9 @@ public class Enemy : MonoBehaviour
         //if (enemyHP / maxHP < 0.2 && !lastFire && rb.CompareTag("BossEnemy"))
         //    FireSetting3();
 
-        
-        for (int i = 0; i < meshRenderers.Length; i++)
-        {
-            meshRenderers[i].material.color = Color.white; // 변경된 색을 적용
-        }
-        ReturnColor();
+        if (changeColor != null)
+            changeColor.OnHit();
+
         if (enemyHP <= 0)
         {
 
@@ -124,17 +117,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void ReturnColor()
-    {
-        if (getDamaged >= 0.5f&&originalColors != null)
-        {
-            for (int i = 0; i < meshRenderers.Length; i++)
-            {
-                meshRenderers[i].material.color = originalColors[i];
-            }
-            getDamaged = 0f;
-        }
-    }
 
 
 

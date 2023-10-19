@@ -6,9 +6,10 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    
     public static EnemySpawner instance;
     //public List<EnemyMovement> spawnMonster;
-    //public GameObject[] enemies;
+    [SerializeField]private GameObject[] Backgrounds;
     public List<Enemy> enemy;
     private Enemy reallySpawnEnemy;
     //public Enemy eliteEnemy;
@@ -31,25 +32,34 @@ public class EnemySpawner : MonoBehaviour
     string monsterID;
     int amount;
     float speed;
+    private bool bossDeath = false;
     private void Awake()
     {
-        // MonsterSpawnTable 클래스의 인스턴스 생성
-        if (instance != null && instance != this)
+        if (instance == null)
         {
-            // 이미 다른 EnemySpawner가 존재하면 현재 스크립트를 파괴
-            Destroy(this.gameObject);
+            instance = this;
         }
         else
         {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
+            Destroy(gameObject);
+            return;
         }
 
         monsterSpawnTable = new MonsterSpawnTable();
         // 데이터 로드
         monsterSpawnTable.Load();
+        ResetSpawner();
         // 데이터를 spawnInfo 딕셔너리에 저장
         //LoadData();
+    }
+    public void ResetSpawner()
+    {
+        currentRoot = 1;
+        nowAddTime = 0;
+        amount = 0;
+        speed = 0;
+
+        LoadData(); // 데이터를 다시 로드합니다.
     }
     void Start()
     {
@@ -58,8 +68,8 @@ public class EnemySpawner : MonoBehaviour
         speed = 0;
         currentRoot = 1;
         LoadData();
-
         StartCoroutine(SpawnEnemies());
+
     }
     void LoadData()
     {
@@ -73,6 +83,7 @@ public class EnemySpawner : MonoBehaviour
     }
     void Update()
     {
+        
         if (GameManager.Instance.IsGameOver)
         {
             //Destroy(gameObject, 30f);
@@ -85,13 +96,13 @@ public class EnemySpawner : MonoBehaviour
         {
             nowAddTime += Time.deltaTime;
             //만약 테이블을 다 순회했을 경우
-            if (spawnInfo.Count <= currentRoot)
+            if (spawnInfo.Count < currentRoot)
             {
                 currentRoot = 1;
                 nowAddTime = 0;
             }
             //맞는 패턴타입을 찾고
-            if (spawnInfo[currentRoot].PatternType == (stageNum % 2))
+            if (spawnInfo[currentRoot].PatternType%2 == (stageNum % 2))
             {
                 //해당패턴타입의 첫 루트를 가져온다.
                 var monData = spawnInfo[currentRoot];
@@ -109,13 +120,27 @@ public class EnemySpawner : MonoBehaviour
                     currentRoot++;
                     yield return null;
                 }
+                
                 //시간을 측정하고
                 //몬스터가 다 나가면, 루트를 하나 올리고
             }
             else
             {
-                currentRoot++;
+                Debug.Log(currentRoot);
             }
+            if(nowAddTime>= 150)
+            {
+                BossPattern();
+            }
+            //보스전에선 저기가 끝날때까지
+            //patterntype1번이 끝나면 2번이 온다.
+            //1번의 보스
+
+            //보스 시간이면 currentRoot 를 건너뛰어야함.
+            //보스 끝나면 다시 더하고
+            // 최고기록 저장하고
+
+
             //만약 패턴타입이 다른경우 루트를 더해서 맞는 패턴타입을 찾는다.
 
             //currentRoot++;
@@ -153,6 +178,37 @@ public class EnemySpawner : MonoBehaviour
         {
             currentRoot = 1;
             nowAddTime = 0;
+        }
+    }
+    private void BossPattern()
+    {
+        var Boss = GameObject.FindGameObjectWithTag("BossEnemy");
+        if (Boss == null&&bossDeath)
+        {
+            Debug.Log("보스죽음.");
+            stageNum++;
+            nowAddTime = 0;
+            switch (stageNum%3)
+            {
+                case 0:
+                    Backgrounds[2].SetActive(false);
+                    Backgrounds[0].SetActive(true);
+                    break;
+                case 1:
+                    Backgrounds[0].SetActive(false);
+                    Backgrounds[1].SetActive(true);
+                    break;
+                case 2:
+                    Backgrounds[1].SetActive(false);
+                    Backgrounds[2].SetActive(true);
+                    break;
+            }
+            bossDeath = false;
+        }
+        else
+        {
+            bossDeath = true;
+            Debug.Log("보스살음.");
         }
     }
 }

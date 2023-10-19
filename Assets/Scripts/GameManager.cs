@@ -43,24 +43,24 @@ public class GameManager : MonoBehaviour
             Restart();
         }
 
-        //if (!IsGameOver && Input.GetKeyDown(KeyCode.Alpha1))
-        //{
-        //    Time.timeScale *= 1.1f;
-        //}
-        //if (!IsGameOver && Input.GetKeyDown(KeyCode.Alpha2))
-        //{
-        //    Time.timeScale *= 0.9f;
-        //}
-        //if (!IsGameOver && Input.GetKeyDown(KeyCode.Alpha3))
-        //{
-        //    Time.timeScale = 1f;
-        //}
+        if (!IsGameOver && Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            Time.timeScale *= 1.1f;
+        }
+        if (!IsGameOver && Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            Time.timeScale *= 0.9f;
+        }
+        if (!IsGameOver && Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            Time.timeScale = 1f;
+        }
         if (callScore>=10)
         {
             Time.timeScale += gameSpeed;
             callScore = 0;
         }
-        
+        Debug.Log(Time.deltaTime);
     }
     public void Restart()
     {
@@ -70,15 +70,41 @@ public class GameManager : MonoBehaviour
         if (EnemySpawner.instance != null)
         {
             Destroy(EnemySpawner.instance.gameObject);
+            EnemySpawner.instance = null;
+            
         }
     }
+
+    private int highScore = 0; // 최고 점수 변수 추가
+
+    // ...
 
     public void OnPlayerDead()
     {
         gameOverMsg.SetActive(true);
         Time.timeScale = 0;
         IsGameOver = true;
+
+        if (score > highScore) // 현재 점수가 최고 점수보다 높을 경우
+        {
+            highScore = score; // 최고 점수 갱신
+            SaveHighScore(); // 최고 점수 저장
+        }
     }
+
+    private void SaveHighScore()
+    {
+        var saveFileName = "save_data.json";
+
+        var saveData = new SaveDataV1();
+
+        saveData.HighScore = highScore;
+
+        SaveLoadSystem.Save(saveData, saveFileName);
+
+        Debug.Log("High score saved: " + highScore);
+    }
+
 
     public void AddScore(int newScore)
     {
