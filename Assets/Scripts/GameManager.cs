@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.Properties;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,7 +21,8 @@ public class GameManager : MonoBehaviour
     private int screenWidth = 720;
     private int screenHeight = 1280;
     private bool IsFullScreen = false;
-
+    private int highScore = 0; // 최고 점수 변수 추가
+    public int CurrentScore => score;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -32,13 +34,22 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.LogWarning("GameManager instance already exists, destroying this one.");
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            DontDestroyOnLoad(Instance);
         }
+
+        LoadHighScore();
+
+        if (Instance != null)
+            HighScorePrint(highScore);
     }
+
 
     private void Start()
     {
-        LoadHighScore();
+        //LoadHighScore();
+        //if(Instance != null)
+        //HighScorePrint(highScore);
     }
     private void LoadHighScore()
     {
@@ -56,8 +67,6 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogWarning("No existing save data found.");
         }
-
-
     }
     private void Update()
     {
@@ -98,7 +107,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private int highScore = 0; // 최고 점수 변수 추가
 
     // ...
 
@@ -108,13 +116,16 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         IsGameOver = true;
 
+        CheckHighscore();
+    }
+    public void CheckHighscore()
+    {
         if (score > highScore) // 현재 점수가 최고 점수보다 높을 경우
         {
             highScore = score; // 최고 점수 갱신
             SaveHighScore(); // 최고 점수 저장
         }
     }
-
     private void SaveHighScore()
     {
         var saveFileName = "save_data.json";
@@ -140,7 +151,7 @@ public class GameManager : MonoBehaviour
             // 점수 추가
             score += newScore;
             // 점수 UI 텍스트 갱신
-            UIManager.instance.UpdateScoreText(score);
+            UIManager.instance.UpdateScoreText(score,highScore);
             callScore++;
         }
     }

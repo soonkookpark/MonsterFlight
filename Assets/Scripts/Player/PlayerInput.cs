@@ -27,6 +27,7 @@ public class PlayerInput : MonoBehaviour
 
     void Update()
     {
+
         if (Input.GetButtonDown("Fire1")&&!IsMove)
         {
             IsMove = true;

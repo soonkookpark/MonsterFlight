@@ -7,22 +7,26 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     // 싱글톤 접근용 프로퍼티
-    public static UIManager instance { get; private set; }
-
-    private void Awake()
+    private static UIManager _instance;
+    public static UIManager instance
     {
-        if (instance == null)
+        get
         {
-            instance = this;
-        }
-        else
-        {
-            Debug.LogWarning("GameManager instance already exists, destroying this one.");
-            Destroy(gameObject);
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<UIManager>();
+
+                if (_instance == null)
+                {
+                    Debug.LogError("UIManager instance is not found.");
+                }
+            }
+
+            return _instance;
         }
     }
 
-    private static UIManager m_instance; // 싱글톤이 할당될 변수
+
 
     public TextMeshProUGUI scoreText; // 점수 표시용 텍스트
     public TextMeshProUGUI lifeText; // 적 웨이브 표시용 텍스트
@@ -30,10 +34,12 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI HighScore;
 
     // 점수 텍스트 갱신
-    public void UpdateScoreText(int newScore)
+    public void UpdateScoreText(int newScore,int highScore)
     {
         var scoreTextEx = ("Score : " + newScore).ToString();
         scoreText.SetText(scoreTextEx); //= "Score : " + newScore;
+        if (GameManager.Instance.CurrentScore > highScore)
+            scoreText.color = Color.red;
     }
 
     public void UpdateLifeText(int life)
@@ -44,7 +50,7 @@ public class UIManager : MonoBehaviour
 
     public void PrintHighScore(int highScore)
     {
-        var lifeTextEx = ("HIGH SCORE : " + highScore).ToString();
-        lifeText.SetText(lifeTextEx); //= "Score : " + newScore;
+        var HighScoreEx = ("HIGH SCORE : " + highScore).ToString();
+        HighScore.SetText(HighScoreEx); //= "Score : " + newScore;
     }
 }
