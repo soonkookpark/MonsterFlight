@@ -19,6 +19,12 @@ public class SaveDataV1 : SaveData
 
     //사용자에 대한 정보
     public int HighScore { get; set; }
+    public float MasterVolume { get; set; }
+    public float BgmVolume { get; set; }
+    public float EffectVolume { get; set; }
+
+
+
 
     public override SaveData VersionUp()
     {
@@ -30,5 +36,9 @@ public class SaveDataV1 : SaveData
 public class PlayerData
 {
     public int highScore { get; set; }
+    public float masterVolume { get; set; }
+    public float bgmVolume { get; set; }
+    public float effectVolume { get; set; }
+
     //public string Name { get; set; }
 }

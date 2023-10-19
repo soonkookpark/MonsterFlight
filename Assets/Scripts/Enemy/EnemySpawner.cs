@@ -123,7 +123,7 @@ public class EnemySpawner : MonoBehaviour
                     StartCoroutine(SpawnMonster(courseNum, startPos, monsterID, amount, speed, stageNum));
                     if(nowAddTime < 150)
                         currentRoot++;
-                    Debug.Log(currentRoot);
+                    //Debug.Log(currentRoot);
                     yield return null;
                 }
                 

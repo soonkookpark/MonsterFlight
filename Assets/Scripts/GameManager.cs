@@ -38,16 +38,68 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(Instance);
         }
         //애플리케이션
-        Application.targetFrameRate = 60;
+        //Application.targetFrameRate = 60;
 
 
         LoadHighScore();
-
+        LoadSoundSettings();
         if (Instance != null)
             HighScorePrint(highScore);
     }
 
+    public void SaveSoundSettings(string key, float value)
+    {
+        var saveFileName = "save_data.json";
+        var saveData = LoadSaveFile();
 
+        switch (key)
+        {
+            case "Master":
+                saveData.MasterVolume = value;
+                break;
+            case "BGM":
+                saveData.BgmVolume = value;
+                break;
+            case "Effect":
+                saveData.EffectVolume = value;
+                break;
+        }
+
+        SaveLoadSystem.Save(saveData, saveFileName);
+
+        Debug.Log(key + " sound setting saved: " + value);
+    }
+
+    private void LoadSoundSettings()
+    {
+
+        var audioMixController = FindObjectOfType<AudioMixController>();
+
+        if (audioMixController != null)
+        {
+            var savedData = LoadSaveFile();
+            audioMixController.SetMasterVolume(LoadSaveFile().MasterVolume);
+            audioMixController.SetBGMVolume(LoadSaveFile().BgmVolume);
+            audioMixController.SetEffectVolume(LoadSaveFile().EffectVolume);
+            audioMixController.m_MusicMasterSlider.value = savedData.MasterVolume;
+            audioMixController.m_MusicBGMSlider.value = savedData.BgmVolume;
+            audioMixController.m_MusicEffectSlider.value = savedData.EffectVolume;
+        }
+        else
+        {
+            Debug.Log("No AudioMixController Found");
+        }
+    }
+    private SaveDataV1 LoadSaveFile()
+    {
+        var saveFileName = "save_data.json";
+        var saveData = SaveLoadSystem.Load(saveFileName);
+
+        if (saveData == null)
+            return new SaveDataV1();
+
+        return saveData as SaveDataV1;
+    }
     private void Start()
     {
         //LoadHighScore();
@@ -56,13 +108,13 @@ public class GameManager : MonoBehaviour
     }
     private void LoadHighScore()
     {
-        var saveFileName = "save_data.json";
+        //var saveFileName = "save_data.json";
 
-        var saveData = SaveLoadSystem.Load(saveFileName);
+        var saveData = LoadSaveFile();
 
-        if (saveData != null && saveData is SaveDataV1 saveDataV1)
+        if (saveData != null && saveData is SaveDataV1 data)
         {
-            highScore = saveDataV1.HighScore;
+            highScore = data.HighScore;
 
             Debug.Log("High score loaded: " + highScore);
         }
@@ -71,6 +123,7 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("No existing save data found.");
         }
     }
+
     private void Update()
     {
         //if (IsGameOver && Input.GetKeyDown(KeyCode.R))
@@ -143,7 +196,7 @@ public class GameManager : MonoBehaviour
     }
     public void HighScorePrint(int score)
     {
-        UIManager.instance.PrintHighScore(highScore);
+        UIManager.instance.PrintHighScore(score);
     }
 
     public void AddScore(int newScore)
