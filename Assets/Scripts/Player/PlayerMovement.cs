@@ -14,34 +14,33 @@ public class PlayerMovement : MonoBehaviour
     
     public void Awake()
     {
+        //Debug.Log(playerRigid.position);
         playerRigid = GetComponent<Rigidbody2D>();
+        
+        
 
+        
+        
+
+        /*
         yPosClampMin = -Camera.main.orthographicSize * 0.9f;
         yPosClampMax = Camera.main.orthographicSize * 0.9f;
         xPosClampMin = yPosClampMin / 16 * 10;
         xPosClampMax = yPosClampMax / 16 * 10;
+        */
     }
 
     private void FixedUpdate()
     {
-        
-        if(PlayerInput.instance.IsMove)
+        Debug.Log(playerRigid.position);
+        if (PlayerInput.instance.IsMove)
         {
-            //Vector3 movePos = Vector3.Lerp(playerRigid.position, PlayerInput.instance.MovePos, moveSpeed * Time.deltaTime);
-            //playerRigid.MovePosition(movePos);
-
-
-            //Joys
             Vector3 movePos = playerRigid.position;
-            //Debug.Log(PlayerInput.instance.MovePos);
-            movePos.x += PlayerInput.instance.MovePos.x * moveSpeed* Time.deltaTime;
-            movePos.y += PlayerInput.instance.MovePos.y * moveSpeed* Time.deltaTime;
-
-            
+            movePos.x += PlayerInput.instance.MovePos.x * moveSpeed * Time.deltaTime;
+            movePos.y += PlayerInput.instance.MovePos.y * moveSpeed * Time.deltaTime;
             movePos.x = Mathf.Clamp(movePos.x, xPosClampMin, xPosClampMax);
             movePos.y = Mathf.Clamp(movePos.y, yPosClampMin, yPosClampMax);
             playerRigid.MovePosition(movePos);
-
         }
 
     }
