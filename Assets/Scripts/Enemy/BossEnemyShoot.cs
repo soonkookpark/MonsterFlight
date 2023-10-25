@@ -10,7 +10,7 @@ public class BossEnemyShoot : MonoBehaviour
     public Transform firePos1;
     public Transform firePos2;
     public Transform firePos3;
-    public float shotTimer1 = 1.4f;
+    public float shotTimer1 = 3f;
     public float shotTimer2 = 3f;
     GameObject playerPos;
     public int numberOfBullets = 20;

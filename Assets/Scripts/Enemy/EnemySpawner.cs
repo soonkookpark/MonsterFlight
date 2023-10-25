@@ -21,6 +21,7 @@ public class EnemySpawner : MonoBehaviour
     private Dictionary<int, MonsterSpawnTable.Data> spawnInfo = new Dictionary<int, MonsterSpawnTable.Data>();
     private int randNum = 0;
     public bool canSpawn = false;
+
     int stageNum=1;
     int courseNum = 1;
     //int patternType=1;
@@ -106,7 +107,7 @@ public class EnemySpawner : MonoBehaviour
                 nowAddTime = 0;
             }
             //맞는 패턴타입을 찾고
-            if (spawnInfo[currentRoot].PatternType%2 == (stageNum % 2))
+            if (spawnInfo[currentRoot].PatternType%2 == (stageNum % 2)||!canSpawn)
             {
                 //해당패턴타입의 첫 루트를 가져온다.
                 var monData = spawnInfo[currentRoot];
@@ -137,6 +138,7 @@ public class EnemySpawner : MonoBehaviour
             if(nowAddTime>= 150)
             {
                 BossPattern();
+                canSpawn = true;
             }
             //보스전에선 저기가 끝날때까지
             //patterntype1번이 끝나면 2번이 온다.
@@ -213,6 +215,7 @@ public class EnemySpawner : MonoBehaviour
                     break;
             }
             bossDeath = false;
+            canSpawn = false;
         }
         else
         {

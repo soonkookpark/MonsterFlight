@@ -5,10 +5,11 @@ using Unity.Properties;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-
+    
     public static GameManager Instance { get; private set; }
     public GameObject gameOverMsg;
     public bool IsGameOver { get; private set; }
@@ -18,15 +19,15 @@ public class GameManager : MonoBehaviour
     private float gameSpeed = 0.05f;
 
     //다양한 해상도 지원하려면 없애야함.
-    private int screenWidth = 720;
-    private int screenHeight = 1280;
+//    private int screenWidth = 720;
+  //  private int screenHeight = 1280;
     private bool IsFullScreen = false;
     private int highScore = 0; // 최고 점수 변수 추가
     public int CurrentScore => score;
     // Start is called before the first frame update
     private void Awake()
     {
-        Screen.SetResolution(screenWidth, screenHeight, !IsFullScreen);
+        //Screen.SetResolution(screenWidth, screenHeight, !IsFullScreen);
         if (Instance == null)
         {
             Instance = this;
@@ -131,18 +132,18 @@ public class GameManager : MonoBehaviour
         //    Restart();
         //}
 
-        //if (!IsGameOver && Input.GetKeyDown(KeyCode.Alpha1))
-        //{
-        //    Time.timeScale *= 1.1f;
-        //}
-        //if (!IsGameOver && Input.GetKeyDown(KeyCode.Alpha2))
-        //{
-        //    Time.timeScale *= 0.9f;
-        //}
-        //if (!IsGameOver && Input.GetKeyDown(KeyCode.Alpha3))
-        //{
-        //    Time.timeScale = 1f;
-        //}
+        if (!IsGameOver && Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            Time.timeScale *= 1.1f;
+        }
+        if (!IsGameOver && Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            Time.timeScale *= 0.9f;
+        }
+        if (!IsGameOver && Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            Time.timeScale = 1f;
+        }
         if (callScore>=10)
         {
             Time.timeScale += gameSpeed;

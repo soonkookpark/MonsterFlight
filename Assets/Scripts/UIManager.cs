@@ -6,6 +6,7 @@ using TMPro;
 // 필요한 UI에 즉시 접근하고 변경할 수 있도록 허용하는 UI 매니저
 public class UIManager : MonoBehaviour
 {
+    public LayoutElement layoutElement;
     // 싱글톤 접근용 프로퍼티
     private static UIManager _instance;
     public static UIManager instance
@@ -25,7 +26,10 @@ public class UIManager : MonoBehaviour
             return _instance;
         }
     }
-
+    public void Awake()
+    {
+        setNotch();
+    }
 
 
     public TextMeshProUGUI scoreText; // 점수 표시용 텍스트
@@ -52,5 +56,18 @@ public class UIManager : MonoBehaviour
     {
         var HighScoreEx = ("HIGH SCORE : " + highScore).ToString();
         HighScore.SetText(HighScoreEx); //= "Score : " + newScore;
+    }
+
+    public void setNotch()
+    {
+        var notchSize = Screen.safeArea.y;
+        if (layoutElement != null)
+        {
+            layoutElement.minHeight = notchSize;
+        }
+        else
+        {
+            Debug.LogError("LayoutElement is not assigned.");
+        }
     }
 }
