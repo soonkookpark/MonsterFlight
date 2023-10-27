@@ -16,23 +16,23 @@ public class PlayerMovement : MonoBehaviour
     {
         //Debug.Log(playerRigid.position);
         playerRigid = GetComponent<Rigidbody2D>();
+        
+        
 
+        
+        
 
-
-
-
-
-
+        /*
         yPosClampMin = -Camera.main.orthographicSize * 0.9f;
         yPosClampMax = Camera.main.orthographicSize * 0.9f;
         xPosClampMin = yPosClampMin / 16 * 10;
         xPosClampMax = yPosClampMax / 16 * 10;
-
+        */
     }
 
     private void FixedUpdate()
     {
-        //Debug.Log(playerRigid.position);
+        Debug.Log(playerRigid.position);
         if (PlayerInput.instance.IsMove)
         {
             Vector3 movePos = playerRigid.position;
