@@ -15,7 +15,7 @@ public class GameButton : MonoBehaviour
 
     public void OpenSetting()
     {
-        if (!IsGamePaused)
+        if (!IsGamePaused&&!GameManager.Instance.IsGameOver)
         {
             nowTimeScale = Time.timeScale;
             Time.timeScale = 0f;

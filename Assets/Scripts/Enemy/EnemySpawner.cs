@@ -139,7 +139,7 @@ public class EnemySpawner : MonoBehaviour
             if(nowAddTime>= 150)
             {
                 BossPattern();
-                canSpawn = true;
+                
             }
             //보스전에선 저기가 끝날때까지
             //patterntype1번이 끝나면 2번이 온다.
@@ -193,7 +193,7 @@ public class EnemySpawner : MonoBehaviour
     }
     private void BossPattern()
     {
-        var Boss = GameObject.FindGameObjectWithTag("BossEnemy");
+        var Boss = GameObject.FindWithTag("BossEnemy");
         if (Boss == null&&bossDeath)
         {
             Debug.Log("보스죽음.");
@@ -221,6 +221,7 @@ public class EnemySpawner : MonoBehaviour
         else
         {
             bossDeath = true;
+            canSpawn = true;
             Debug.Log("보스살음.");
         }
     }
