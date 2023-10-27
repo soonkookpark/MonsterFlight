@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class SwordShoot : PlayerShoot
 {
+
     public Transform[] firePos; // 크기가 4인 배열
     public GameObject projectile;
     public GameObject chargeShot;
@@ -71,6 +72,8 @@ public class SwordShoot : PlayerShoot
 
     public override void CountUp()
     {
+        if (!UnlockChargeShot)
+            return;
         subWeaponCount++;
         powerGuage.value = subWeaponCount;
         //Debug.Log(subWeaponCount);

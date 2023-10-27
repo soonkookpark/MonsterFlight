@@ -14,6 +14,7 @@ public class SwordSubWeapon : MonoBehaviour
     // public Transform FireRightPos;
     private ChargeShot chargeShot;
     private bool shouldShoot = true; // Ãß°¡
+    
 
     public AudioClip shootSound; // Drag your audio file in the inspector to set this variable.
 
@@ -44,6 +45,8 @@ public class SwordSubWeapon : MonoBehaviour
 
     public void Shoot()
     {
+        if (!PlayerShoot.Instance.UnlockAIShot)
+            return;
         if(chargeShot==null)
             Instantiate(projectile, FirePos.position, Quaternion.identity);
         if (audioSource != null && shootSound != null)

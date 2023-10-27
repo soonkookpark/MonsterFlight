@@ -1,3 +1,5 @@
+using Google.Play.Common;
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -15,6 +17,10 @@ public class PlayerSetting : MonoBehaviour
     private float invincibleTime = 0.5f;
     //float waitTime = 2f;
     //float elapsedTime = 0f;
+    //private void Awake()
+    //{
+    //    GameManager.Instance.UpdateLife(playerhealth);
+    //}
     private void OnEnable()
     {
         playerhealth = startingHealth;
@@ -51,8 +57,19 @@ public class PlayerSetting : MonoBehaviour
                 StartCoroutine(PlayerHitEffect());
             }
         }
-    }
+        var item = collision.GetComponent<IItem>();
 
+        if (item != null)
+        {
+            item.Use(gameObject);
+        }
+    }
+    public void LifeUp()
+    {
+        if(playerhealth<5)
+            playerhealth++;
+        GameManager.Instance.UpdateLife(playerhealth);
+    }
 
     IEnumerator PlayerHitEffect()
     {

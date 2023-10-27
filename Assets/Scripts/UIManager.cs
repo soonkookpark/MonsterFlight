@@ -28,7 +28,7 @@ public class UIManager : MonoBehaviour
     }
     public void Awake()
     {
-        setNotch();
+        SetNotch();
     }
 
 
@@ -58,7 +58,7 @@ public class UIManager : MonoBehaviour
         HighScore.SetText(HighScoreEx); //= "Score : " + newScore;
     }
 
-    public void setNotch()
+    public void SetNotch()
     {
         var notchSize = Screen.safeArea.y;
         if (layoutElement != null)
