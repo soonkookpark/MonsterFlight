@@ -46,11 +46,11 @@ public class SwordShoot : PlayerShoot
             shootTimer = 0;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space)&&ultTimer>ultTime)
-        {
-            Ult();
-            ultTimer = 0;
-        }
+        //if (Input.GetKeyDown(KeyCode.Space)&&ultTimer>ultTime)
+        //{
+        //    Ult();
+        //    ultTimer = 0;
+        //}
 
         if(subWeaponCount >= subweaponAttackEnable)
         {
@@ -79,16 +79,16 @@ public class SwordShoot : PlayerShoot
         //Debug.Log(subWeaponCount);
     }
 
-    void Ult()
-    {
-        foreach (GameObject bullet in ObjectManager.instance.enemyAttack)
-        {
-            if (bullet.activeInHierarchy)
-            {
-                bullet.SetActive(false);
-            }
-        }
-    }
+    //void Ult()
+    //{
+    //    foreach (GameObject bullet in ObjectManager.instance.enemyAttack)
+    //    {
+    //        if (bullet.activeInHierarchy)
+    //        {
+    //            bullet.SetActive(false);
+    //        }
+    //    }
+    //}
 
     void ChargeShoot()
     {

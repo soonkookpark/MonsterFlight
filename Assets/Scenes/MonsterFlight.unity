@@ -3766,37 +3766,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4245236048925747149, guid: f58d96fc9c419084385db454542cf458, type: 3}
   m_PrefabInstance: {fileID: 994303261}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &999603129
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 999603130}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &999603130
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 999603129}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.746469, y: 3.270484, z: 0.32680908}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1000822508
 GameObject:
   m_ObjectHideFlags: 0
@@ -8495,6 +8464,10 @@ PrefabInstance:
       value: BulletObject
       objectReference: {fileID: 0}
     - target: {fileID: 5294498546659541049, guid: e9963c81749206141a7ea7ae440e06ac, type: 3}
+      propertyPath: coinItemPrefab
+      value: 
+      objectReference: {fileID: 983298282669623986, guid: cb829b56fcb635f4280212913faf5d8d, type: 3}
+    - target: {fileID: 5294498546659541049, guid: e9963c81749206141a7ea7ae440e06ac, type: 3}
       propertyPath: enemyBulletPrefab
       value: 
       objectReference: {fileID: 6951289631357580119, guid: 9076219c6c7e4694d91fbd348c7d2741, type: 3}
@@ -8752,6 +8725,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
+  - {fileID: 981141003}
   - {fileID: 4735921029041581266}
   - {fileID: 2120546562}
   - {fileID: 331669727}
@@ -8762,5 +8736,3 @@ SceneRoots:
   - {fileID: 548921924}
   - {fileID: 8222903831747772164}
   - {fileID: 5790535032513947221}
-  - {fileID: 999603130}
-  - {fileID: 981141003}

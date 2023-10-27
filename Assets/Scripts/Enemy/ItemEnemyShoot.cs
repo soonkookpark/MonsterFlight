@@ -83,15 +83,15 @@ public class ItemEnemyShoot : MonoBehaviour
         }
     }
 
-    private void DisableOneBullet()
-    {
-        foreach (GameObject bullet in ObjectManager.instance.enemyAttack)
-        {
-            if (bullet.activeInHierarchy)
-            { 
-                bullet.SetActive(false);
-                break; // 하나만 비활성화하고 나가기
-            }
-        }
-    }
+    //private void DisableOneBullet()
+    //{
+    //    foreach (GameObject bullet in ObjectManager.instance.enemyAttack)
+    //    {
+    //        if (bullet.activeInHierarchy)
+    //        { 
+    //            bullet.SetActive(false);
+    //            break; // 하나만 비활성화하고 나가기
+    //        }
+    //    }
+    //}
 }
