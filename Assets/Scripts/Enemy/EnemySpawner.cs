@@ -107,7 +107,7 @@ public class EnemySpawner : MonoBehaviour
                 nowAddTime = 0;
             }
             //맞는 패턴타입을 찾고
-            if (spawnInfo[currentRoot].PatternType%2 == (stageNum % 2)||!canSpawn)
+            if (spawnInfo[currentRoot].PatternType%2 == (stageNum % 2)&&!canSpawn)
             {
                 //해당패턴타입의 첫 루트를 가져온다.
                 var monData = spawnInfo[currentRoot];
@@ -135,6 +135,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 //Debug.Log(currentRoot);
             }
+
             if(nowAddTime>= 150)
             {
                 BossPattern();

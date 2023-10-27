@@ -7,7 +7,8 @@ public class PlayerSetting : MonoBehaviour
 {
     //게임오브젝트로 이펙트 생성
     //public GameObject dieEffect;
-    private int startingHealth = 3;
+    [Header("체력 설정")]
+    [SerializeField] private int startingHealth = 3;
     private int playerhealth;
     public GameObject hitEffect;
     private float invincibleTimeAdd;

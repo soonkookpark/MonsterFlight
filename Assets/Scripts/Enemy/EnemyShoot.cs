@@ -10,7 +10,6 @@ public class EnemyShoot : MonoBehaviour
     public float shotDelay = 1;
     public float itemShotDelay = 0.1f;
     public float shotTimer;
-    private float disableTimer = 0f;
     public int numberOfBullets = 30;
     private float bulletSpeed = 10f;
     GameObject playerPos;

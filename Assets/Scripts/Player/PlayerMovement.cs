@@ -22,12 +22,12 @@ public class PlayerMovement : MonoBehaviour
         
         
 
-        /*
+        
         yPosClampMin = -Camera.main.orthographicSize * 0.9f;
         yPosClampMax = Camera.main.orthographicSize * 0.9f;
         xPosClampMin = yPosClampMin / 16 * 10;
         xPosClampMax = yPosClampMax / 16 * 10;
-        */
+        
     }
 
     private void FixedUpdate()
