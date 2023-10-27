@@ -642,7 +642,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 124
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!224 &331669727
 RectTransform:
@@ -3661,7 +3661,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 8
   m_Depth: -2
   m_CullingMask:
     serializedVersion: 2
@@ -8359,7 +8359,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 828543771775988819, guid: aa940df4d787ed949802feaf91996abd, type: 3}
       propertyPath: m_LayerOverridePriority
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1808237258672042064, guid: aa940df4d787ed949802feaf91996abd, type: 3}
       propertyPath: m_IsActive
@@ -8367,11 +8367,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2876326026177530286, guid: aa940df4d787ed949802feaf91996abd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.29
       objectReference: {fileID: 0}
     - target: {fileID: 2876326026177530286, guid: aa940df4d787ed949802feaf91996abd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6
+      value: -5.84
       objectReference: {fileID: 0}
     - target: {fileID: 2876326026177530286, guid: aa940df4d787ed949802feaf91996abd, type: 3}
       propertyPath: m_LocalPosition.z
