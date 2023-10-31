@@ -3,7 +3,22 @@ using UnityEngine.UI;
 
 public class SwordShoot : PlayerShoot
 {
-
+    private static SwordShoot instance;
+    public static SwordShoot Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<SwordShoot>();
+                if (instance == null)
+                {
+                    Debug.LogError("SwordShoot instance is not found.");
+                }
+            }
+            return instance;
+        }
+    }
     public Transform[] firePos; // 크기가 4인 배열
     public GameObject projectile;
     public GameObject chargeShot;
@@ -58,6 +73,14 @@ public class SwordShoot : PlayerShoot
             ChargeShoot();
             //Debug.Log("2번");
             subWeaponCount = 0;
+        }
+        if (Input.GetKeyDown(KeyCode.F5))
+        {
+            UnlockAIShot = true;
+        }
+        if (Input.GetKeyDown(KeyCode.F6))
+        {
+            UnlockChargeShot = true;
         }
     }
 

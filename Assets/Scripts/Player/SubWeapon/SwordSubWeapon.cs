@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SwordSubWeapon : MonoBehaviour
 {
-
+    
     public GameObject projectile;
     private float shotTimer;
     public float shootDelay = 0.5f;
@@ -41,11 +41,12 @@ public class SwordSubWeapon : MonoBehaviour
 
             shotTimer = 0f;
         }
+        
     }
 
     public void Shoot()
     {
-        if (!PlayerShoot.Instance.UnlockAIShot)
+        if (!SwordShoot.Instance.UnlockAIShot)
             return;
         if(chargeShot==null)
             Instantiate(projectile, FirePos.position, Quaternion.identity);
