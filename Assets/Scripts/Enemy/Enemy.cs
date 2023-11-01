@@ -31,6 +31,8 @@ public class Enemy : MonoBehaviour
     private GameObject bossCheck;
     //parentHitEffect.OnHit();
     private ChangeColor changeColor;
+    public GameObject[] itemPrefab;
+    GameObject dropItem;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -43,7 +45,6 @@ public class Enemy : MonoBehaviour
     }
     void Start()
     {
-        
     }
 
     public void InitializePath(CinemachineSmoothPath newPath, Vector3 newStartPosition)
@@ -157,6 +158,21 @@ public class Enemy : MonoBehaviour
         //explosionParticle.Play();
         //Debug.Log("Hi");
         GameManager.Instance.AddScore(score);
+        if (CompareTag("ItemEnemy"))
+            DropItem();
         Destroy(gameObject);
+    }
+    private void DropItem()
+    {
+        
+        if(GameManager.Instance.CoinCount<2)
+        {
+            dropItem = Instantiate(itemPrefab[0], transform.position, Quaternion.identity);
+        }
+        else
+        {
+            dropItem = Instantiate(itemPrefab[1], transform.position, Quaternion.identity);
+        }
+        dropItem.SetActive(true);
     }
 }

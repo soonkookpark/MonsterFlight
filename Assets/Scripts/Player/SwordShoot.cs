@@ -86,8 +86,10 @@ public class SwordShoot : PlayerShoot
 
     void Shoot()
     {
+        
         for (int i = 0; i < firePos.Length; i++)
         {
+            
             Instantiate(projectile, firePos[i].position, Quaternion.identity);
         }
 

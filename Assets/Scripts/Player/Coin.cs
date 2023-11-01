@@ -5,23 +5,27 @@ using UnityEngine;
 public class Coin : MonoBehaviour, IItem
 {
     int coinCount = 0;
+    public int CoinCount { get { return coinCount; } }
 
     public void Use(GameObject go)
     {
-        coinCount++;
-        switch(coinCount)
+        GameManager.Instance.IncreaseCoinCount();
+        //coinCount++;
+        SwordShoot sword = go.GetComponentInChildren<SwordShoot>();
+        switch(GameManager.Instance.CoinCount)
         {
             case 1:
-                PlayerShoot.Instance.UnlockAIShot = true;
+                sword.UnlockAIShot = true;
                 break;
             case 2:
-                PlayerShoot.Instance.UnlockChargeShot = true;
+                sword.UnlockChargeShot = true;
                 break;
-            default:
+            default:    
                 PlayerSetting player = go.GetComponent<PlayerSetting>();
                 player.LifeUp();
                 break;
         }
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
+    
 }

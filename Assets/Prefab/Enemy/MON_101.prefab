@@ -146,6 +146,9 @@ MonoBehaviour:
   rb: {fileID: 0}
   DieEffectPrefab: {fileID: 5588622559632298485, guid: eb4a3a5ca8649154bb6ff8002e2f8cf5, type: 3}
   FireEffectPrefab: {fileID: 0}
+  itemPrefab:
+  - {fileID: 76093710813825128, guid: 598d0133f8aeed6479a2c709e69b6636, type: 3}
+  - {fileID: 6421087013522746979, guid: 62d188929c075a64bb70653429db2581, type: 3}
 --- !u!114 &6944969980494643851
 MonoBehaviour:
   m_ObjectHideFlags: 0

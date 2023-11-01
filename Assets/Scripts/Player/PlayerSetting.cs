@@ -66,7 +66,7 @@ public class PlayerSetting : MonoBehaviour
     }
     public void LifeUp()
     {
-        if(playerhealth<5)
+        //if(playerhealth<5)
             playerhealth++;
         GameManager.Instance.UpdateLife(playerhealth);
     }

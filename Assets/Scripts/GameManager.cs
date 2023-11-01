@@ -47,7 +47,12 @@ public class GameManager : MonoBehaviour
         if (Instance != null)
             HighScorePrint(highScore);
     }
+    public int CoinCount { get; private set; }
 
+    public void IncreaseCoinCount()
+    {
+        CoinCount++;
+    }
     public void SaveSoundSettings(string key, float value)
     {
         var saveFileName = "save_data.json";
@@ -155,18 +160,14 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        CoinCount = 0;
         gameOverMsg.SetActive(false);
         if (EnemySpawner.instance != null)
         {
             Destroy(EnemySpawner.instance.gameObject);
             EnemySpawner.instance = null;
-            
         }
     }
-
-
-    // ...
-
     public void OnPlayerDead()
     {
         gameOverMsg.SetActive(true);
